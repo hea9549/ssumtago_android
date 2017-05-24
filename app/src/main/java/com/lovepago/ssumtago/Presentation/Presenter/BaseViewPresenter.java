@@ -1,4 +1,4 @@
-package com.lovepago.ssumtago.Presenter;
+package com.lovepago.ssumtago.Presentation.Presenter;
 
 /**
  * Created by ParkHaeSung on 2017-05-15.

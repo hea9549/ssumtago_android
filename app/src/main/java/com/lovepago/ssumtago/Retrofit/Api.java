@@ -1,10 +1,6 @@
 package com.lovepago.ssumtago.Retrofit;
 
 
-import com.lovepago.ssumtago.Model.Exercise;
-import com.lovepago.ssumtago.Model.LoginDTO;
-import com.lovepago.ssumtago.Model.User;
-
 import java.util.ArrayList;
 
 import io.reactivex.Observable;

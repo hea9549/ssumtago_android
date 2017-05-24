@@ -1,6 +1,5 @@
 package com.lovepago.ssumtago.CustomClass;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,23 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.lovepago.ssumtago.Presenter.BaseViewPresenter;
-
-import butterknife.ButterKnife;
+import com.lovepago.ssumtago.Presentation.Presenter.BaseViewPresenter;
+import com.lovepago.ssumtago.STGApplication;
 
 /**
- * Created by ParkHaeSung on 2017-05-15.
- */
-
+ * @since 2017-05-15
+ * @implNote
+ * do not override onCreate in sub class.
+ * just use STGOnCreate
+ * */
 public abstract class STGBaseActivity extends AppCompatActivity implements BaseViewPresenter {
     private ProgressDialog progressDialog;
     private String TAG = "STGBaseActivity";
-    /**
-     * @since 2017-05-15
-     * @implNote
-     * do not override onCreate in sub class.
-     * just use STGOnCreate
-     * */
+
     public abstract void STGOnCreate(@Nullable Bundle savedInstanceState);
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +27,6 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
         progressDialog = new ProgressDialog(this);
         STGOnCreate(savedInstanceState);
     }
-
 
     @Override
     public void makeDialog(String message) {
