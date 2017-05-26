@@ -8,4 +8,5 @@ public interface BaseViewPresenter {
     void makeDialog(String message);
     void cancelDialog();
     void makeToast(String message);
+    void navigateActivity(Class navigateClass);
 }

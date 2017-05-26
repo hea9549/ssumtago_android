@@ -1,5 +1,6 @@
 package com.lovepago.ssumtago.Presentation.Activity;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,20 +24,30 @@ public class MainActivity extends STGBaseActivity implements MainActivityPresent
     @Inject
     MainActivityPresenter presenter;
 
-    @BindView(R.id.btn_login)
+    @BindView(R.id.btn_main_login)
     Button btn_login;
-    @BindView(R.id.btn_getExercise)
-    Button btn_getExercise;
-    @BindView(R.id.edt_num)EditText edt_num;
-
-    private String[] strArr = {"해성","준범"};
+    @BindView(R.id.btn_main_facebookLogin)
+    Button btn_facebookLogin;
+    @BindView(R.id.btn_main_kakaoLogin)
+    Button btn_kakaoLogin;
+    @BindView(R.id.edt_main_id)
+    EditText edt_id;
+    @BindView(R.id.edt_main_pw)
+    EditText edt_pw;
 
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         ((STGApplication)getApplication()).getComponent().inject(this);
-        presenter.logRetrofit();
+        presenter.setView(this);
+        buttonEventSetting();
+    }
+
+    private void buttonEventSetting(){
+        btn_login.setOnClickListener(v->presenter.loginClick(edt_id.getText().toString(),edt_pw.getText().toString()));
+        btn_facebookLogin.setOnClickListener(v->presenter.facebookLoginClick());
+        btn_kakaoLogin.setOnClickListener(v->presenter.kakaoLoginClick());
     }
 
 }
