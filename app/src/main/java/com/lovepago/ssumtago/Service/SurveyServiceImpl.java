@@ -6,6 +6,8 @@ import com.lovepago.ssumtago.Data.Model.Survey;
 import com.lovepago.ssumtago.Data.RealmDBService;
 import com.lovepago.ssumtago.Retrofit.ApiSurvey;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 
 import retrofit2.Call;
@@ -39,6 +41,10 @@ public class SurveyServiceImpl implements SurveyService {
         Log.e(TAG,"try to get survey SERVER");
 
         Observable<Survey> retrofitObservable = retrofit.create(ApiSurvey.class).getSurvey("http://expirit.co.kr:5000/");
+        retrofitObservable.subscribeOn(Schedulers.io()).filter(s->s.getId() == id).subscribe(a->{
+            Log.e(TAG,"retrofit Observable : "+a.getName());
+        });
+
         retrofitObservable.subscribeOn(Schedulers.io()).subscribe(
                 response -> realmDBService.inputData(response)
                 , error -> Log.e(TAG,"error in retrofitObserver, in getSurveyById metohd, message : "+error.getMessage()));
