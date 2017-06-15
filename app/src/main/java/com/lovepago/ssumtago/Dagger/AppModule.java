@@ -3,14 +3,15 @@ package com.lovepago.ssumtago.Dagger;
 
 import android.content.Context;
 
-import com.lovepago.ssumtago.Presentation.Presenter.MainActivityPresenter;
-import com.lovepago.ssumtago.Presentation.Presenter.MainActivityPresenterImpl;
+import com.lovepago.ssumtago.Data.RealmDBService;
+import com.lovepago.ssumtago.Data.RealmDBServiceImpl;
 import com.lovepago.ssumtago.Retrofit.STGRetrofit;
+import com.lovepago.ssumtago.Service.SurveyService;
+import com.lovepago.ssumtago.Service.UserService;
+import com.lovepago.ssumtago.Service.UserServiceImpl;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
@@ -33,5 +34,15 @@ public class AppModule {
         return STGRetrofit.getInstance();
     }
 
+    @Singleton
+    @Provides
+    RealmDBService provideRealmDBService(){
+        return new RealmDBServiceImpl(context);
+    }
 
+    @Singleton
+    @Provides
+    UserService provideUserService(Retrofit retrofit){
+        return new UserServiceImpl(retrofit);
+    }
 }

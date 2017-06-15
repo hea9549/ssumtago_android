@@ -1,6 +1,7 @@
 package com.lovepago.ssumtago.CustomClass;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
     private String TAG = "STGBaseActivity";
 
     public abstract void STGOnCreate(@Nullable Bundle savedInstanceState);
+
+    @Deprecated
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,5 +56,12 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
     @Override
     public void makeToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void navigateActivity(Class navigateClass) {
+        Intent intent = new Intent(this,navigateClass);
+        startActivity(intent);
+        finish();
     }
 }

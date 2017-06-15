@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "406664392075",
+    "firebase_url": "https://ssumtago.firebaseio.com",
+    "project_id": "ssumtago",
+    "storage_bucket": "ssumtago.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406664392075:android:6fbcaef4c98e37a8",
+        "android_client_info": {
+          "package_name": "com.lovepago.ssumtago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406664392075-om66seme4rc5it46aq5lde03dtkne35u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFTVmW14zTHnm1MWnPxPsLooIQeCRBBaM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

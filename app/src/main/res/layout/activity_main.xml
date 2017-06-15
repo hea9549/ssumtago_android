@@ -6,34 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".Presentation.Activity.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="TextView" />
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:text="로그인" />
-
-    <Button
-        android:id="@+id/btn_getExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btn_login"
-        android:layout_alignRight="@+id/btn_login"
-        android:layout_below="@+id/btn_login"
-        android:text="띄워보기" />
-    <EditText
-        android:id="@+id/edt_num"
-        android:layout_width="100dp"
+        android:id="@+id/btn_main_getFcm"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/btn_getExercise"
-        android:layout_centerHorizontal="true"/>
+        android:text="fcm 토큰 얻기"
+        />
+    <EditText
+        android:id="@+id/edt_main_fcmToken"
+        android:layout_below="@+id/btn_main_getFcm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <Button
+        android:text="디자인보러가기"
+        android:id="@+id/btn_main_gotoDesigin"
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/edt_main_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/edt_main_pw"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="id"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edt_main_pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/btn_main_login"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="pw"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_main_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/btn_main_kakaoLogin"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#123456"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_main_facebookLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#123456"
+        android:text="페북 로그인"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_main_kakaoLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/btn_main_facebookLogin"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#123456"
+        android:text="카카오 로그인"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btn_main_facebookLoginFunc"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:visibility="invisible" />
 </RelativeLayout>
