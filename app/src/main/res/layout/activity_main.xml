@@ -6,14 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".Presentation.Activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="썸타고~!"
-        android:textColor="@color/black"
-        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btn_main_getFcm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="fcm 토큰 얻기"
+        />
+    <EditText
+        android:id="@+id/edt_main_fcmToken"
+        android:layout_below="@+id/btn_main_getFcm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <Button
+        android:text="디자인보러가기"
+        android:id="@+id/btn_main_gotoDesigin"
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <EditText
         android:id="@+id/edt_main_id"
@@ -75,4 +85,10 @@
         android:text="카카오 로그인"
         android:textColor="@color/white"
         android:textSize="20dp" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btn_main_facebookLoginFunc"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:visibility="invisible" />
 </RelativeLayout>

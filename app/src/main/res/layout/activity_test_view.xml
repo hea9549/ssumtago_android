@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lovepago.ssumtago.Presentation.Activity.TestViewActivity">
+
+
+    <com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/waveView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:text="오늘 데이트는 좋았어?"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="#7ba521dd"
+        />
+</RelativeLayout>

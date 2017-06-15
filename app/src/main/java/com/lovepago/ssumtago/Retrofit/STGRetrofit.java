@@ -39,7 +39,7 @@ public class STGRetrofit {
 
             retrofit = new Retrofit.Builder()
                     .client(httpClient)
-                    .baseUrl("http://expirit.co.kr:5000/")
+                    .baseUrl("http://expirit.co.kr:3000/")
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();

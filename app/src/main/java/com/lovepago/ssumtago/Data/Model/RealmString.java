@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 /**
  * Created by ParkHaeSung on 2017-05-24.
  */
-@RealmClass
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

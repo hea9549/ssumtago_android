@@ -9,12 +9,12 @@ import java.util.List;
  * Created by ParkHaeSung on 2017-05-15.
  */
 
-public interface HomeActivityPresenter {
+public interface JoinActivityPresenter {
     void setView(View view);
-    void init();
-    void onSubmitClick(RequestAnswer requestAnswer);
+
+    void register(String email, String pw, String name, String sex, int age);
 
     interface View extends BaseViewPresenter{
-        void setList(List<Question> questions);
+
     }
 }

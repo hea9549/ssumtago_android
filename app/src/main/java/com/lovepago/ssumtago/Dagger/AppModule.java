@@ -7,6 +7,8 @@ import com.lovepago.ssumtago.Data.RealmDBService;
 import com.lovepago.ssumtago.Data.RealmDBServiceImpl;
 import com.lovepago.ssumtago.Retrofit.STGRetrofit;
 import com.lovepago.ssumtago.Service.SurveyService;
+import com.lovepago.ssumtago.Service.UserService;
+import com.lovepago.ssumtago.Service.UserServiceImpl;
 
 import javax.inject.Singleton;
 
@@ -38,4 +40,9 @@ public class AppModule {
         return new RealmDBServiceImpl(context);
     }
 
+    @Singleton
+    @Provides
+    UserService provideUserService(Retrofit retrofit){
+        return new UserServiceImpl(retrofit);
+    }
 }

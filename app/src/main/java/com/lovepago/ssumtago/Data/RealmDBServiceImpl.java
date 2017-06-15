@@ -7,8 +7,9 @@ import com.lovepago.ssumtago.Data.Model.Survey;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
+import io.realm.exceptions.RealmMigrationNeededException;
 import rx.Observable;
 
 /**
@@ -18,14 +19,18 @@ import rx.Observable;
 public class RealmDBServiceImpl implements RealmDBService {
     private Context context;
     private Realm mRealm;
-    public RealmDBServiceImpl(Context context){
+
+    public RealmDBServiceImpl(Context context) {
         this.context = context;
         initController();
     }
+
     @Override
     public void initController() {
         Realm.init(context);
+
         mRealm = Realm.getDefaultInstance();
+
     }
 
     @Override
@@ -34,13 +39,13 @@ public class RealmDBServiceImpl implements RealmDBService {
     }
 
     @Override
-    public Observable<RealmResults<Survey>> getSurveyBySurveyId(int surveyId) {
+    public Observable<Survey> getSurveyBySurveyId(int surveyId) {
         initController();
-        return mRealm.where(Survey.class).equalTo("id",surveyId).findAll().asObservable();
+        return mRealm.where(Survey.class).equalTo("id", surveyId).findFirst().asObservable();
     }
 
     @Override
-    public int getSurveyCount(){
+    public int getSurveyCount() {
         initController();
         return mRealm.where(Survey.class).findAll().size();
     }
@@ -54,10 +59,11 @@ public class RealmDBServiceImpl implements RealmDBService {
     }
 
     @Override
-    public <E extends RealmObject>void inputData(E data) {
+    public <E extends RealmObject> E inputData(E data) {
         initController();
         mRealm.beginTransaction();
         mRealm.copyToRealm(data);
         mRealm.commitTransaction();
+        return data;
     }
 }

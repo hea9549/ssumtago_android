@@ -22,6 +22,8 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
     private String TAG = "STGBaseActivity";
 
     public abstract void STGOnCreate(@Nullable Bundle savedInstanceState);
+
+    @Deprecated
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -2,10 +2,13 @@ package com.lovepago.ssumtago.Service;
 
 import android.util.Log;
 
+import com.lovepago.ssumtago.Data.Model.ExpectAnswer;
+import com.lovepago.ssumtago.Data.Model.RequestAnswer;
 import com.lovepago.ssumtago.Data.Model.Survey;
 import com.lovepago.ssumtago.Data.RealmDBService;
 import com.lovepago.ssumtago.Retrofit.ApiSurvey;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -15,6 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import rx.Observable;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -27,33 +31,22 @@ public class SurveyServiceImpl implements SurveyService {
     private RealmDBService realmDBService;
 
     @Inject
-    public SurveyServiceImpl(Retrofit retrofit,RealmDBService realmDBService) {
+    public SurveyServiceImpl(Retrofit retrofit, RealmDBService realmDBService) {
         this.retrofit = retrofit;
         this.realmDBService = realmDBService;
     }
 
     @Override
     public Observable<Survey> getSurveyById(int id) {
-        if (isSurveyInDataBase()) {
-            Log.e(TAG,"getSurvey by DB");
-            return realmDBService.getSurveyBySurveyId(id).flatMap(Observable::from).filter(s->s.getId()==id);
-        }
-        Log.e(TAG,"try to get survey SERVER");
-
-        Observable<Survey> retrofitObservable = retrofit.create(ApiSurvey.class).getSurvey("http://expirit.co.kr:5000/");
-        retrofitObservable.subscribeOn(Schedulers.io()).filter(s->s.getId() == id).subscribe(a->{
-            Log.e(TAG,"retrofit Observable : "+a.getName());
-        });
-
-        retrofitObservable.subscribeOn(Schedulers.io()).subscribe(
-                response -> realmDBService.inputData(response)
-                , error -> Log.e(TAG,"error in retrofitObserver, in getSurveyById metohd, message : "+error.getMessage()));
-        return retrofitObservable.filter(s -> s.getId() == id);
+        return realmDBService.getSurveyBySurveyId(id)
+                .switchIfEmpty(
+                        retrofit.create(ApiSurvey.class)
+                        .getSurvey("http://expirit.co.kr:5000")
+                        .map(survey -> realmDBService.inputData(survey)));
     }
 
-    private boolean isSurveyInDataBase() {
-        Log.e(TAG,"get SurveyCount ? = "+ realmDBService.getSurveyCount());
-        if (realmDBService.getSurveyCount() == 0) return false;
-        return true;
+    @Override
+    public Observable<String> requestAnswer(RequestAnswer requestAnswer) {
+        return retrofit.create(ApiSurvey.class).requestExpectation(requestAnswer);
     }
 }

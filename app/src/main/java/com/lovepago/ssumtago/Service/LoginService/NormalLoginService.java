@@ -42,7 +42,7 @@ public class NormalLoginService implements LoginService {
         LoginDTO loginDTO = new LoginDTO(DataCode.LOGIN_TYPE_NORMAL);
         loginDTO.setId(id);
         loginDTO.setPw(pw);
-        return retrofit.create(ApiUser.class).login(loginDTO).asObservable();
+        return null;
     }
 
     public static class Builder implements LoginService.builder{

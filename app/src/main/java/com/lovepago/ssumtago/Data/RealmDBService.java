@@ -13,11 +13,11 @@ import rx.Observable;
  */
 
 public interface RealmDBService extends DBService {
-    Observable<RealmResults<Survey>> getSurveyBySurveyId(int surveyId);
+    Observable<Survey> getSurveyBySurveyId(int surveyId);
 
     int getSurveyCount();
 
     void inputDatas(List datas);
 
-    <E extends RealmObject>void inputData(E data);
+    <E extends RealmObject>E inputData(E data);
 }
