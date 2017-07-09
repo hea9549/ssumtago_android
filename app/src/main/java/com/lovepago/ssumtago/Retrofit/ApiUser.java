@@ -5,6 +5,7 @@ import com.lovepago.ssumtago.Data.Model.LoginDTO;
 import com.lovepago.ssumtago.Data.Model.User;
 
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import rx.Observable;
@@ -19,4 +20,7 @@ public interface ApiUser {
 
     @POST("users")
     Observable<User> register(@Body User user);
+
+    @DELETE("users")
+    Observable<String> deleteUser();
 }

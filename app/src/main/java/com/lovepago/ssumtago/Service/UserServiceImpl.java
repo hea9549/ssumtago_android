@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
         this.user.setEmail(email);
         this.user.setPassword(pw);
         this.user.setJoinType(joinType);
-
         return retrofit.create(ApiUser.class)
                 .login(this.user)
                 .subscribeOn(Schedulers.io())
@@ -46,5 +45,10 @@ public class UserServiceImpl implements UserService {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(retunUser->user=retunUser);
+    }
+
+    @Override
+    public User getUser(){
+        return user;
     }
 }

@@ -27,10 +27,7 @@ public class RealmDBServiceImpl implements RealmDBService {
 
     @Override
     public void initController() {
-        Realm.init(context);
-
         mRealm = Realm.getDefaultInstance();
-
     }
 
     @Override

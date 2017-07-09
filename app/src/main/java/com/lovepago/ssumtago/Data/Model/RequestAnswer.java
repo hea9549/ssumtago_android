@@ -13,8 +13,8 @@ import lombok.Data;
  */
 @Data
 public class RequestAnswer extends RealmObject {
-    private int surveyId = -1;
-    private int modelId = -1;
-    private String version = "";
-    private RealmList<RequestObject> data ;
+    private int surveyId;
+    private int modelId;
+    private String version;
+    private RealmList<RequestObject> data;
 }

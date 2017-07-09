@@ -8,14 +8,18 @@ import com.lovepago.ssumtago.Dagger.AppModule;
 import com.lovepago.ssumtago.Dagger.InterfaceBindModule;
 import com.lovepago.ssumtago.Presentation.Activity.HomeActivity;
 import com.lovepago.ssumtago.Presentation.Activity.JoinActivity;
+import com.lovepago.ssumtago.Presentation.Activity.LoginActivity;
 import com.lovepago.ssumtago.Presentation.Activity.MainActivity;
+import com.lovepago.ssumtago.Retrofit.JWTAddInterceptor;
 import com.lovepago.ssumtago.Service.FCM.STGFireBaseInstanceIdService;
 import com.lovepago.ssumtago.Service.LoginService.NormalLoginService;
 import com.lovepago.ssumtago.Service.SurveyServiceImpl;
+import com.tsengvn.typekit.Typekit;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
+import io.realm.Realm;
 
 public class STGApplication extends Application {
 
@@ -24,8 +28,11 @@ public class STGApplication extends Application {
     public void onCreate() {
         super.onCreate();
         applicationComponent = DaggerSTGApplication_ApplicationComponent.builder().appModule(new AppModule(getApplicationContext())).build();
-        //FacebookSdk.sdkInitialize(getApplicationContext()); 아랫께 알아서부른다는데? 일단테스트 ㄱㄱ
         AppEventsLogger.activateApp(this);
+        Typekit.getInstance()
+                .addNormal(Typekit.createFromAsset(this,"fonts/NanumSquareR.otf"))
+                .addBold(Typekit.createFromAsset(this,"fonts/NanumSquareB.otf"));
+        Realm.init(this);
     }
 
     public static ApplicationComponent getComponent() {
@@ -39,7 +46,8 @@ public class STGApplication extends Application {
         void inject(HomeActivity homeActivity);
         void inject(NormalLoginService normalLoginService);
         void inject(STGFireBaseInstanceIdService stgFireBaseInstanceIdService);
-
         void inject(JoinActivity joinActivity);
+        void inject(JWTAddInterceptor jwtAddInterceptor);
+        void inject(LoginActivity loginActivity);
     }
 }

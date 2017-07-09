@@ -9,6 +9,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Url;
 import rx.Observable;
 
@@ -17,12 +19,10 @@ import rx.Observable;
  */
 
 public interface ApiSurvey {
-    @GET
-    Observable<List<Survey>> getAllSurvey(@Url String url);
+    @GET("surveys")
+    Observable<List<Survey>> getAllSurvey();
 
-    @GET
-    Observable<Survey> getSurvey(@Url String url);
+    @GET("surveys/{surveyId}")
+    Observable<Survey> getSurvey(@Path("surveyId") int surveyId);
 
-    @POST("predictReports")
-    Observable<String> requestExpectation(@Body RequestAnswer requestAnswer);
 }

@@ -9,6 +9,6 @@ import lombok.Data;
  */
 @Data
 public class RequestObject extends RealmObject{
-    private String questionCode = "";
-    private String answerCode = "";
+    private String questionCode;
+    private String answerCode;
 }

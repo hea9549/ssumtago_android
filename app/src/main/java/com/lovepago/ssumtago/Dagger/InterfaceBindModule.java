@@ -4,6 +4,8 @@ import com.lovepago.ssumtago.Presentation.Presenter.HomeActivityPresenter;
 import com.lovepago.ssumtago.Presentation.Presenter.HomeActivityPresenterImpl;
 import com.lovepago.ssumtago.Presentation.Presenter.JoinActivityPresenter;
 import com.lovepago.ssumtago.Presentation.Presenter.JoinActivityPresenterImpl;
+import com.lovepago.ssumtago.Presentation.Presenter.LoginActivityPresenter;
+import com.lovepago.ssumtago.Presentation.Presenter.LoginActivityPresenterImpl;
 import com.lovepago.ssumtago.Presentation.Presenter.MainActivityPresenter;
 import com.lovepago.ssumtago.Presentation.Presenter.MainActivityPresenterImpl;
 import com.lovepago.ssumtago.Service.SurveyService;
@@ -25,4 +27,6 @@ public abstract class InterfaceBindModule {
     public abstract SurveyService bindSurveyService(SurveyServiceImpl surveyService);
     @Binds
     public abstract JoinActivityPresenter bindJoinPresenter(JoinActivityPresenterImpl joinActivityPresenter);
+    @Binds
+    public abstract LoginActivityPresenter bindLoginPresenter(LoginActivityPresenterImpl loginActivityPresenter);
 }

@@ -1,6 +1,7 @@
 package com.lovepago.ssumtago.CustomClass;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.lovepago.ssumtago.Presentation.Presenter.BaseViewPresenter;
 import com.lovepago.ssumtago.STGApplication;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
  * @since 2017-05-15
@@ -63,5 +65,9 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
         Intent intent = new Intent(this,navigateClass);
         startActivity(intent);
         finish();
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

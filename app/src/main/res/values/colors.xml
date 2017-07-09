@@ -3,6 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="ssumtago_blue">#3d92e6</color>
+    <color name="ssumtago_darkBlue">#FF024F7A</color>
     <color name="black">#000000</color>
+    <color name="blank">#00000000</color>
     <color name="white">#ffffff</color>
+    <color name="whiteHint">#7dffffff</color>
+    <color name="ssumInputBox">#FFE5E5E5</color>
+    <color name="splitLine">#e5e5e5</color>
 </resources>

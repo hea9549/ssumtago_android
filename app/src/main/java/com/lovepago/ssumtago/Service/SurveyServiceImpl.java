@@ -6,6 +6,7 @@ import com.lovepago.ssumtago.Data.Model.ExpectAnswer;
 import com.lovepago.ssumtago.Data.Model.RequestAnswer;
 import com.lovepago.ssumtago.Data.Model.Survey;
 import com.lovepago.ssumtago.Data.RealmDBService;
+import com.lovepago.ssumtago.Retrofit.ApiSsum;
 import com.lovepago.ssumtago.Retrofit.ApiSurvey;
 
 import java.util.List;
@@ -41,12 +42,12 @@ public class SurveyServiceImpl implements SurveyService {
         return realmDBService.getSurveyBySurveyId(id)
                 .switchIfEmpty(
                         retrofit.create(ApiSurvey.class)
-                        .getSurvey("http://expirit.co.kr:5000")
+                        .getSurvey(id)
                         .map(survey -> realmDBService.inputData(survey)));
     }
 
     @Override
     public Observable<String> requestAnswer(RequestAnswer requestAnswer) {
-        return retrofit.create(ApiSurvey.class).requestExpectation(requestAnswer);
+        return null;//retrofit.create(ApiSsum.class).requestSsumExpect();
     }
 }

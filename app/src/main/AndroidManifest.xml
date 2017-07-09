@@ -45,15 +45,18 @@
         </service>
 
         <activity android:name=".Presentation.Activity.MainActivity">
+        </activity>
+        <activity android:name=".Presentation.Activity.HomeActivity" />
+        <activity android:name=".Presentation.Activity.JoinActivity" />
+        <activity android:name=".Presentation.Activity.TestViewActivity" />
+        <activity android:name=".Presentation.Activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.Activity.HomeActivity" />
-        <activity android:name=".Presentation.Activity.JoinActivity" />
-        <activity android:name=".Presentation.Activity.TestViewActivity"></activity>
+        <activity android:name=".Presentation.Activity.LoginActivity"></activity>
     </application>
 
 </manifest>

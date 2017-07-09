@@ -12,4 +12,5 @@ import rx.Observable;
 public interface UserService {
     Observable<User> login(String email, String pw, String joinType);
     Observable<User> register(String email, String pw, String joinType,String name,String sex, int age);
+    User getUser();
 }
