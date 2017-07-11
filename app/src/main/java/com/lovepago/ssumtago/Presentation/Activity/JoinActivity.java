@@ -36,8 +36,6 @@ public class JoinActivity extends STGBaseActivity implements JoinActivityPresent
     EditText edt_pw2;
     @BindView(R.id.btn_join_submit)
     Button btn_register;
-    @BindView(R.id.view_join_emailCheckAnim)
-    LottieAnimationView view_emailCheckAnim;
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_join);
@@ -45,22 +43,6 @@ public class JoinActivity extends STGBaseActivity implements JoinActivityPresent
         STGApplication.getComponent().inject(this);
         initButtonAction();
         presenter.setView(this);
-        edt_email.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(StringFormatChecker.isValidEmail(s.toString()))view_emailCheckAnim.playAnimation();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     private void initButtonAction() {
