@@ -5,28 +5,26 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 import lombok.Data;
 import rx.Observable;
 
 /**
- * Created by ParkHaeSung on 2017-05-25.
+ * joinType = email or facebook
  */
 @Data
 public class User extends RealmObject {
-    private String email;
-    private String password;
-    private String name;
-    private String sex;
-    private int age;
-    private String joinType;
-    private String fcmToken;
-   // private RealmList<Ssum> ssums;
-    private String id;
-    private String jwt;
-
-    public static Observable<User> getUserFromDB() {
-        Realm mRealm;
-        mRealm = Realm.getDefaultInstance();
-        return mRealm.where(User.class).findFirst().asObservable();
-    }
+    @PrimaryKey
+    String email;
+    String password;
+    String name;
+    String sex;
+    String birthday;
+    String joinType;
+    String fcmToken;
+    String role;
+    String lastSurveyed;
+    boolean surveyedYN;
+    String jwt;
+    RealmList<PredictReport> predictReports;
 }

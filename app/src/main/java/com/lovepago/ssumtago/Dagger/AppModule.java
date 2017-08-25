@@ -3,10 +3,9 @@ package com.lovepago.ssumtago.Dagger;
 
 import android.content.Context;
 
-import com.lovepago.ssumtago.Data.RealmDBService;
-import com.lovepago.ssumtago.Data.RealmDBServiceImpl;
 import com.lovepago.ssumtago.Retrofit.STGRetrofit;
 import com.lovepago.ssumtago.Service.SurveyService;
+import com.lovepago.ssumtago.Service.SurveyServiceImpl;
 import com.lovepago.ssumtago.Service.UserService;
 import com.lovepago.ssumtago.Service.UserServiceImpl;
 
@@ -30,19 +29,18 @@ public class AppModule {
 
     @Singleton
     @Provides
-    Retrofit provideRetrofit(){
-        return STGRetrofit.getInstance();
+    UserService provideUserService(){
+        return new UserServiceImpl();
     }
 
     @Singleton
     @Provides
-    RealmDBService provideRealmDBService(){
-        return new RealmDBServiceImpl(context);
+    SurveyService provideSurveyService(UserService userService){
+        return new SurveyServiceImpl(userService);
     }
 
-    @Singleton
     @Provides
-    UserService provideUserService(Retrofit retrofit){
-        return new UserServiceImpl(retrofit);
+    Context provideContext(){
+        return context;
     }
 }

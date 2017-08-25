@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.LinearInterpolator;
-import android.widget.Toast;
 
 import com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView;
 import com.lovepago.ssumtago.R;
@@ -19,15 +18,15 @@ import java.util.List;
 import java.util.Random;
 
 public class TestViewActivity extends AppCompatActivity {
-    AnimatorSet mAnimatorSet;
     STGWaveView waveView;
+    AnimatorSet mAnimatorSet;
     STGListener listener = new STGListener();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         List<Animator> animators = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_view);
-        waveView = (STGWaveView)findViewById(R.id.waveView);
+        waveView = (STGWaveView)findViewById(R.id.view_loby_waveView);
         waveView.setShapeType(STGWaveView.ShapeType.SQUARE);
         waveView.setWaterLevelRatio(0.5f);
         ObjectAnimator waveShiftAnim = ObjectAnimator.ofFloat(

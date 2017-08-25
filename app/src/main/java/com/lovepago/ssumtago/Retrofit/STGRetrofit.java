@@ -31,7 +31,6 @@ public class STGRetrofit {
             OkHttpClient httpClient = new OkHttpClient().newBuilder()
                     .cookieJar(new JavaNetCookieJar(cookieManager))
                     .build();
-            //httpClient.interceptors().add(new JWTAddInterceptor());
             Gson gson = new GsonBuilder()
                     .registerTypeAdapter(new TypeToken<RealmList<RealmString>>() {}.getType(),
                             new StringRealmListConverter())

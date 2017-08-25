@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        app:np_dividerColor="@color/ssumtago_orange"
+        app:np_max="55"
+        app:np_min="15"
+        android:descendantFocusability="blocksDescendants"
+        app:np_selectedTextColor="@color/ssumtago_orange" />
+
+    <Button
+        android:id="@+id/btn_numberPickerDialog_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberPicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/box_gray_border"
+        android:text="설정"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
+
+</RelativeLayout>

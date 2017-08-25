@@ -32,13 +32,13 @@ public class STGWaveView extends View {
          * +------------------------+__|____
          */
         private static final float DEFAULT_AMPLITUDE_RATIO = 0.05f;
-        private static final float DEFAULT_WATER_LEVEL_RATIO = 0.5f;
+        private static final float DEFAULT_WATER_LEVEL_RATIO = 0.3f;
         private static final float DEFAULT_WAVE_LENGTH_RATIO = 1.0f;
         private static final float DEFAULT_WAVE_SHIFT_RATIO = 0.0f;
 
         public static final int DEFAULT_BEHIND_WAVE_COLOR = Color.parseColor("#28FFFFFF");
         public static final int DEFAULT_FRONT_WAVE_COLOR = Color.parseColor("#3CFFFFFF");
-        public static final ShapeType DEFAULT_WAVE_SHAPE = ShapeType.CIRCLE;
+        public static final ShapeType DEFAULT_WAVE_SHAPE = ShapeType.SQUARE;
 
         public enum ShapeType {
             CIRCLE,

@@ -1,9 +1,12 @@
 package com.lovepago.ssumtago.Service;
 
-import com.lovepago.ssumtago.Data.Model.ExpectAnswer;
-import com.lovepago.ssumtago.Data.Model.RequestAnswer;
+import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Data.Model.Survey;
 
+import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 import rx.Observable;
 
 /**
@@ -11,7 +14,11 @@ import rx.Observable;
  */
 
 public interface SurveyService {
+    Observable<List<Survey>> getAllSurvey();
+
     Observable<Survey> getSurveyById(int id);
 
-    Observable<String> requestAnswer(RequestAnswer requestAnswer);
+    Observable<PredictReport> submitReport(PredictReport predictReport);
+
+    Observable<ResponseBody> submitStartReport(PredictReport predictReport);
 }

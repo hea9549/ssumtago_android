@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blank"
+    android:orientation="vertical"
+    tools:background="@color/ssumtago_gray">
+
+    <TextView
+        android:id="@+id/tv_stgAlertDialog_content"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_semi_round_white_upper"
+        android:gravity="center"
+        android:lineSpacingExtra="9dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="24dp"
+        android:text="테스트 텍스트입니다"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_stgAlertDialog_accept"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:background="@drawable/box_semi_round_orange_lower"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_stgAlertDialog_content"
+        app:layout_constraintRight_toRightOf="@+id/tv_stgAlertDialog_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_stgAlertDialog_content" />
+</android.support.constraint.ConstraintLayout>

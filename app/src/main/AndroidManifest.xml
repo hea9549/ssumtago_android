@@ -44,19 +44,28 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Presentation.Activity.MainActivity">
-        </activity>
-        <activity android:name=".Presentation.Activity.HomeActivity" />
+        <activity android:name=".Presentation.Activity.MainActivity" />
         <activity android:name=".Presentation.Activity.JoinActivity" />
         <activity android:name=".Presentation.Activity.TestViewActivity" />
-        <activity android:name=".Presentation.Activity.SplashActivity" >
+        <activity android:name=".Presentation.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.Activity.LoginActivity"></activity>
+        <activity android:name=".Presentation.Activity.LoginActivity" />
+        <activity android:name=".Presentation.Activity.StartGuideActivity" />
+        <activity android:name=".Presentation.Activity.SetSsumActivity" />
+        <activity android:name=".Presentation.Activity.DeveloperInfoActivity" />
+        <activity android:name=".Presentation.Activity.EtcActivity" />
+        <activity android:name=".Presentation.Activity.AppInfoActivity" />
+        <activity android:name=".Presentation.Activity.LobyActivity" />
+        <activity android:name=".Presentation.Activity.SurveyActivity" />
+        <activity android:name=".Presentation.Activity.ApiTestActivity" />
+        <activity android:name=".Presentation.Activity.FacebookJoinActivity" />
+        <activity android:name=".Presentation.Activity.ResultDialogActivity" />
+        <activity android:name=".Presentation.Activity.MyAccountActivity"></activity>
     </application>
 
 </manifest>

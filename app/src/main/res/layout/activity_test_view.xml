@@ -9,7 +9,7 @@
 
     <com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView
         android:layout_alignParentBottom="true"
-        android:id="@+id/waveView"
+        android:id="@+id/view_loby_waveView"
         android:layout_width="match_parent"
         android:layout_height="150dp" />
     <TextView

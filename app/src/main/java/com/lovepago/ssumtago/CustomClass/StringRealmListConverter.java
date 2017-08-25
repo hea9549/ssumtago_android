@@ -21,7 +21,7 @@ public class StringRealmListConverter implements JsonDeserializer<RealmList<Real
 
     @Override
     public RealmList<RealmString> deserialize(JsonElement json, Type typeOfT,
-                                      JsonDeserializationContext context)
+                                              JsonDeserializationContext context)
             throws JsonParseException {
         RealmList<RealmString> realmStrings = new RealmList<>();
         JsonArray stringList = json.getAsJsonArray();

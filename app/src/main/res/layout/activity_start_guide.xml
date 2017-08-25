@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start_guide_back"
+    tools:context="com.lovepago.ssumtago.Presentation.Activity.StartGuideActivity">
+
+    <ImageView
+        android:id="@+id/img_startGuide_indicator1"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/guide_full_box"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/img_startGuide_indicator2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_startGuide_indicator2"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/guide_empty_box"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@+id/img_startGuide_indicator1"
+        app:layout_constraintRight_toLeftOf="@+id/img_startGuide_indicator3"
+        app:layout_constraintTop_toTopOf="@+id/img_startGuide_indicator1" />
+
+    <ImageView
+        android:id="@+id/img_startGuide_indicator3"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/guide_empty_box"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@+id/img_startGuide_indicator2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_startGuide_indicator2" />
+
+    <TextView
+        android:id="@+id/tv_startGuide_guide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:lineSpacingExtra="20dp"
+        android:text="@string/guide1"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_startGuide_tap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_startGuide_guide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="20dp"
+        android:text="@string/guide2"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btn_startGuide_tap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btn_startGuide_tap"
+        style="?android:attr/selectableItemBackground"
+        android:layout_width="88dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/blank"
+        android:text="Tap"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/wrapper_startGuide_rippleBack"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wrapper_startGuide_rippleBack" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    <com.skyfishjy.library.RippleBackground
+        android:id="@+id/wrapper_startGuide_rippleBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline11"
+        app:layout_constraintVertical_bias="0.0"
+        app:rb_color="#24ffffff"
+        app:rb_duration="3000"
+        app:rb_radius="40dp"
+        app:rb_rippleAmount="4"
+        app:rb_scale="3" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/wrapper_startGuide_guide3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/wrapper_startGuide_rippleBack"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="20dp"
+            android:text="@string/guide3"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/guide3_extra"
+            android:textColor="#CCffffff"
+            android:textSize="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="119dp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:visibility="invisible"
+        android:id="@+id/wrapper_startGuide_guide4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/survey_back_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_startGuide_startSurvey"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/box_round_white"
+            android:text="시작합니다"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

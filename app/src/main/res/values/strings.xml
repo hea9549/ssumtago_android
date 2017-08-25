@@ -2,11 +2,34 @@
     <string name="app_name">ssumtago</string>
     <string name="facebook_app_id">1278820235564364</string>
     <string name="fb_login_protocol_scheme">fb1278820235564364</string>
-    <string name="login_main_string">HELLO!\nWE ARE\nSSUMTAGO</string>
+    <string name="login_main_string">HELLO!\nWE ARE\nLUVPAGO</string>
     <string name="policy"><u>개인정보수집동의</u></string>
     <string name="ssumtagoExplain">썸타고는 ‘썸’과 ‘알파고’를 결합하여 만든 명칭으로, 수많은 학습 데이터를 기반으로 여러분의 썸 확률을 예측하는 서비스입니다. 썸타고는 머신러닝 기술을 이용하여 정확도를 높이면서 여러 상황에서 유연하게 정보를 제공합니다.
         \n\n썸을 처음 타보시는 분, 언제 고백하는 것이 좋을지 감을 못 잡는 분, 여러분과 상대방이 썸인지 아닌지 헷갈리는 분들에게 조금이나마 도움이 되기를 바랍니다.
         \n\n당신의 썸을 성공시키는 그날까지,
         \n썸타고는 쉬지 않고 달리겠습니다.
         \n감사합니다.</string>
+    <string name="guide1">럽파고에 오신 여러분,\n진심으로 환영합니다.</string>
+    <string name="guide2">여러분은 럽파고에서
+        \n‘럽지’를 작성하여
+        \n여러분의 사랑지수를
+        \n확인할 수 있습니다.</string>
+    <string name="guide3">당신의 성향을 파악하여
+        \n정확한 결과를 제공하기 위한
+        \n첫 질문을 시작합니다.</string>
+    <string name="guide3_extra">&lt;tip&gt; 설문 결과는 더 나은 학습모델을 위해
+        \n데이터로 사용됩니다. 가장 최근의 썸 또는
+        \n연애를 기준으로 작성해주세요.</string>
+    <string name="addSsumTip">&lt;tip&gt; 정확한 나이를 입력해야\n결과에 대한 정확도가 높아져요!</string>
+    <string name="developerInfo_hash">#jQuery  #jsp  #Firebase  #Angular  #Ruby #Xcode  #Adobe  #Sketch  #Spring #css  #mongoDB  #java  #PHP #Javscript  #Swift  #Android #nodeJS  #unity  #SQL  #HTML...</string>
+
+    <string name="survey_start_main_first">이미 성공했거나 실패한 썸을\n떠올려주세요. 썸 상황을 기준\n으로 리포트를 작성해주세요!</string>
+    <string name="survey_start_main_ssum">지금부터\n썸포트를 시작합니다.\n이번 썸포트는\n‘현재의 썸 또는 연애’에 대해\n작성해주세요.</string>
+    <string name="survey_start_tip_first">&lt;tip&gt;커플이 된 사람들은 사귄 후의 상황을 입력하시면 안돼요!</string>
+    <string name="survey_start_tip_ssum">&lt;tip&gt;처음 로그인했을 때 작성했던 것은 이미 지난 썸 또는 연애 중에 가장 최근의 것을 기준으로 했던 것으로, 지금 작성하는 것과 다른 것입니다.</string>
+
+    <string name="survey_finish_main_first">수고하셨어요!\n이제 리포트가 완성됐어요!</string>
+    <string name="survey_finish_main_ssum">썸포트를 모두 완성했어요!\n제출하시겠어요?</string>
+    <string name="survey_finish_tip_first">&lt;tip&gt;제출 후 럽파고의 서비스\n를 이용할 수 있어요</string>
+    <string name="survey_finish_tip_ssum">&lt;tip&gt;썸포트는 24시간에 1회만\n작성할 수 있어요.</string>
 </resources>

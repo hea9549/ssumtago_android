@@ -13,65 +13,72 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.lovepago.ssumtago.CustomClass.StringRealmListConverter;
-import com.lovepago.ssumtago.Data.Model.RealmString;
-import com.lovepago.ssumtago.Data.Model.SurveyResult;
+import com.google.gson.JsonElement;
+import com.lovepago.ssumtago.CustomClass.CustomView.STGResultDialog;
+import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Presentation.Activity.MainActivity;
+import com.lovepago.ssumtago.Presentation.Activity.ResultDialogActivity;
 import com.lovepago.ssumtago.R;
+import com.lovepago.ssumtago.STGApplication;
+import com.lovepago.ssumtago.Service.UserService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.Iterator;
 
-import io.realm.RealmList;
+import javax.inject.Inject;
+
+import io.realm.Realm;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by ParkHaeSung on 2017-05-28.
  */
 
 public class STGFirebaseMessagingService extends FirebaseMessagingService {
-    String TAG = "FCMMessagingService";
+    private String TAG = "FCMMessagingService";
+
+    @Inject
+    UserService userService;
+    public STGFirebaseMessagingService(){
+        super();
+        STGApplication.getComponent().inject(this);
+    }
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         Iterator keySet = remoteMessage.getData().keySet().iterator();
-        String pushType = remoteMessage.getData().get("pushType");
-        Iterator<String> iterator = remoteMessage.getData().keySet().iterator();
-        while (iterator.hasNext()){
-            String key = iterator.next();
-            Log.e(TAG,"key = "+key+", value = "+remoteMessage.getData().get(key));
+        while (keySet.hasNext()){
+            String key = (String)keySet.next();
+            Log.e(TAG,"key : "+key +" data = "+remoteMessage.getData().get(key));
         }
-        switch (pushType){
-            case "030001":
-                //
-                Gson gson = new GsonBuilder()
-                        .registerTypeAdapter(new TypeToken<RealmList<RealmString>>() {}.getType(),
-                                new StringRealmListConverter())
-                        .create();
-                SurveyResult result = gson.fromJson(remoteMessage.getData().get("data"),SurveyResult.class);
-                sendNotification("결과능 !! : "+result.getResult().get(0).getContent());
-                break;
-            default:
-                Log.e(TAG,"illegal pushType. input push type = "+pushType);
-        }
+        Log.e(TAG,"message = "+remoteMessage.getNotification().getBody());
+        Observable.just("makeResultDialog")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s->{
+                    for (PredictReport predictReport : userService.getUser().getPredictReports()){
+                        if (predictReport.getId().equals(remoteMessage.getData().get("reportId"))){
+                            Realm realm = Realm.getDefaultInstance();
+                            realm.beginTransaction();
+                            try {
+                                JSONArray jsonArray = new JSONArray(remoteMessage.getData().get("result"));
+                                predictReport.getResult().get(0).setVal(Double.valueOf(jsonArray.get(0).toString()));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Log.e(TAG,"아 존나 제이슨에러임 ㅠ");
+                            }
+
+                            userService.alertPredictReportChange();
+                            realm.commitTransaction();
+                        }
+                    }
+
+                    Intent intent = new Intent(getApplicationContext(), ResultDialogActivity.class);
+                    intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK |  Intent.FLAG_ACTIVITY_CLEAR_TOP ) ;
+                    startActivity(intent);
+                });
 
     }
-    private void sendNotification(String messageBody) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
-                PendingIntent.FLAG_ONE_SHOT);
 
-        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("FCM Push Test")
-                .setContentText(messageBody)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
-    }
 }

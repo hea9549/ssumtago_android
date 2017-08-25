@@ -8,16 +8,9 @@ import java.util.regex.Pattern;
  */
 
 public class StringFormatChecker {
-    public static boolean isValidEmail(String email) {
-        //check Email
-        boolean err = false;
-        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(email);
-        if(m.matches()) {
-            err = true;
-        }
-        return err;
+    public static boolean isValidId(String id) {
+        if (id == null) return false;
+        return 3 < id.length() && id.length() < 31;
     }
 
     public static boolean isValidPassword(String pw) {

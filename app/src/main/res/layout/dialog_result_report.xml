@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blank"
+    android:orientation="vertical"
+    tools:background="@color/ssumtago_gray"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_semi_round_white_upper"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_resultDialog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:lineSpacingExtra="9dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:text="방금 썸포트를 작성해서 새로운 썸 성공 지수가 생겼습니다."
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,2:1"
+            android:src="@drawable/result"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="30dp"
+            android:scaleType="centerInside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_resultDialog_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_resultDialog_getResult"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:background="@drawable/box_semi_round_orange_lower"
+        android:text="결과 보기"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout2"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+</android.support.constraint.ConstraintLayout>

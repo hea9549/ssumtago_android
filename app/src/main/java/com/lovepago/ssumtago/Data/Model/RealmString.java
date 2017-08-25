@@ -9,13 +9,18 @@ import lombok.NoArgsConstructor;
 /**
  * Created by ParkHaeSung on 2017-05-24.
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class RealmString extends RealmObject{
-    private String content;
+    String content;
     @Override
     public String toString(){
         return content;
+    }
+
+    public RealmString(){
+
+    }
+    public RealmString(String content){
+        this.content = content;
     }
 }

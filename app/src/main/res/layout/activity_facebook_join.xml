@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_orange_gradient"
+    tools:context="com.lovepago.ssumtago.Presentation.Activity.FacebookJoinActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="성별"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintTop_toBottomOf="@+id/edt_facebookJoin_nick" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_facebookJoin_birthday"
+        app:layout_constraintRight_toRightOf="@+id/tv_facebookJoin_birthday"
+        app:layout_constraintTop_toTopOf="@+id/tv_facebookJoin_birthday"
+        app:srcCompat="@drawable/selectboxicon" />
+
+    <TextView
+        android:id="@+id/tv_facebookJoin_birthday"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/join_inputbox"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintRight_toLeftOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="나이(년/월)"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintTop_toBottomOf="@+id/btn_facebookJoin_male" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="닉네임"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="140dp" />
+
+    <EditText
+        android:id="@+id/edt_facebookJoin_nick"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/join_inputbox"
+        android:hint="사용할 닉네임을 입력해주세요"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/whiteHint"
+        android:textCursorDrawable="@color/white"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintRight_toLeftOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        tools:layout_editor_absoluteX="346dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/btn_facebookJoin_male"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/selector_join_enable"
+        android:text="남"
+        android:textColor="@drawable/selector_join_enable"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline22"
+        app:layout_constraintRight_toLeftOf="@+id/btn_facebookJoin_female"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <Button
+        android:id="@+id/btn_facebookJoin_female"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/selector_join_enable"
+        android:text="여"
+        android:textColor="@drawable/selector_join_enable"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_facebookJoin_male"
+        app:layout_constraintLeft_toRightOf="@+id/btn_facebookJoin_male"
+        app:layout_constraintRight_toLeftOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/btn_facebookJoin_male" />
+
+    <TextView
+        android:id="@+id/tv_facebookJoin_privacyPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/policy"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_facebookJoin_privacyPolicy"
+        app:layout_constraintLeft_toRightOf="@+id/cb_facebookJoin_privacyPolicy"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cb_facebookJoin_privacyPolicy" />
+
+    <CheckBox
+        android:id="@+id/cb_facebookJoin_privacyPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:button="@drawable/selector_checkbox"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_facebookJoin_privacyPolicy"
+        app:layout_constraintTop_toBottomOf="@+id/tv_facebookJoin_birthday" />
+
+    <Button
+        android:id="@+id/btn_facebookJoin_submit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:enabled="false"
+        android:text="페이스북으로 로그인하기"
+        android:textColor="@color/ssumtago_gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

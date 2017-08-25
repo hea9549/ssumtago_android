@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="SSUMTAGO"
+        android:text="럽파고"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -23,8 +23,8 @@
         android:layout_height="1dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.07"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="27dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -32,17 +32,17 @@
         android:layout_height="1dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.93"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="357dp" />
+        tools:layout_editor_absoluteX="357dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="안녕하세요\n썸타고입니다."
         android:lineSpacingExtra="5dp"
-        android:textColor="@color/ssumtago_darkBlue"
+        android:text="안녕하세요\n럽파고입니다."
+        android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
@@ -64,97 +64,97 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:lineSpacingExtra="5dp"
         android:text="@string/ssumtagoExplain"
         android:textColor="@color/black"
         android:textSize="14dp"
-        android:lineSpacingExtra="5dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toLeftOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline9"
-        app:layout_constraintGuide_percent="0.8"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="474dp"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintGuide_percent="0.8"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="474dp" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ssumtago_explain"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ssumtago_explain" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btn_appInfo_close"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@null"
+        app:layout_constraintRight_toLeftOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/textView5"
-        app:srcCompat="@drawable/closeblack"
-        app:layout_constraintRight_toLeftOf="@+id/guideline3" />
+        app:srcCompat="@drawable/closeblack" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/ssumtago_darkBlue"
+        android:background="#FFFC7055"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:textSize="16dp"
-            android:textColor="@color/white"
-            android:id="@+id/textView13"
+            android:id="@+id/tv_appInfo_learningDataSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
             android:text="학습데이터 수 : "
-            app:layout_constraintBottom_toTopOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            android:layout_marginLeft="0dp"
-            app:layout_constraintLeft_toLeftOf="@+id/guideline10" />
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_appInfo_versionInfo"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_appInfo_accuracy" />
 
         <TextView
-            android:textSize="16dp"
-            android:textColor="@color/white"
-            android:id="@+id/textView15"
+            android:id="@+id/tv_appInfo_versionInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
             android:text="버전정보 :"
+            android:textColor="@color/white"
+            android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
-            android:layout_marginLeft="0dp"
-            app:layout_constraintLeft_toLeftOf="@+id/guideline10" />
+            app:layout_constraintLeft_toLeftOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_appInfo_learningDataSet" />
 
         <TextView
-            android:textSize="16dp"
-            android:textColor="@color/white"
-            android:id="@+id/textView14"
+            android:id="@+id/tv_appInfo_accuracy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="정확도 : "
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textView13"
             android:layout_marginLeft="0dp"
-            app:layout_constraintLeft_toLeftOf="@+id/guideline10" />
+            android:text="정확도 : "
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_appInfo_learningDataSet"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.constraint.Guideline
+            android:id="@+id/guideline10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/guideline10"
-            app:layout_constraintGuide_percent="0.07"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

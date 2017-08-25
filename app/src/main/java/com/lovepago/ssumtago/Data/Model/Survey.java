@@ -1,10 +1,8 @@
 package com.lovepago.ssumtago.Data.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 import lombok.Data;
 
 /**
@@ -13,9 +11,12 @@ import lombok.Data;
 
 @Data
 public class Survey extends RealmObject {
-    private RealmList<Question> questions = new RealmList<>();
-    private String desc;
-    private String name;
-    private String version;
-    private int id;
+    @PrimaryKey
+    int surveyId;
+    RealmList<Question> questions;
+    RealmList<RealmString> excludeCodes;
+    String desc;
+    String name;
+    String version;
+    String isAvailable;
 }

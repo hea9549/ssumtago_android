@@ -1,34 +1,43 @@
 package com.lovepago.ssumtago.Presentation.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
-import com.lovepago.ssumtago.ArrayElement;
-import com.lovepago.ssumtago.ArrayMockTest;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.lovepago.ssumtago.CustomClass.STGBaseActivity;
 import com.lovepago.ssumtago.Domain.StringFormatChecker;
 import com.lovepago.ssumtago.Presentation.Presenter.LoginActivityPresenter;
 import com.lovepago.ssumtago.R;
 import com.lovepago.ssumtago.STGApplication;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
-import io.realm.RealmList;
-import io.realm.RealmObject;
+import butterknife.OnClick;
+import butterknife.OnTextChanged;
+import rx.Observable;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 
-public class LoginActivity extends STGBaseActivity {
+public class LoginActivity extends STGBaseActivity implements LoginActivityPresenter.View {
+    private static final String TAG = "LoginActivity";
     @Inject
     LoginActivityPresenter presenter;
 
@@ -46,71 +55,91 @@ public class LoginActivity extends STGBaseActivity {
     Button btnLogin;
     @BindView(R.id.btn_login_facebook)
     Button btnFacebook;
+    @BindView(R.id.tv_login_checkIdPw)
+    TextView tv_checkIdPw;
+
+    private CallbackManager callbackManager;
 
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         STGApplication.getComponent().inject(this);
-        edtId.addTextChangedListener(new TextWatcher() {
+        presenter.setView(this);
+        callbackManager = CallbackManager.Factory.create();
+    }
+
+    @OnTextChanged(R.id.edt_login_id)
+    void onIdTextChange(CharSequence sequence) {
+        if (StringFormatChecker.isValidId(sequence.toString()) && StringFormatChecker.isValidPassword(edtPw.getText().toString()))
+            btnLogin.setEnabled(true);
+        else
+            btnLogin.setEnabled(false);
+    }
+    @OnTextChanged(R.id.edt_login_pw)
+    void onPwTextChange(CharSequence sequence) {
+        if (StringFormatChecker.isValidPassword(sequence.toString()) && StringFormatChecker.isValidId(edtId.getText().toString()))
+            btnLogin.setEnabled(true);
+        else
+            btnLogin.setEnabled(false);
+    }
+    /**
+     * view Interface Implementation :)
+     * */
+
+
+    /**
+     * onClick Implementaion >-<
+     */
+    @OnClick(R.id.btn_login_join)
+    void onJoinClick() {
+        navigateActivity(JoinActivity.class);
+    }
+
+    @OnClick(R.id.btn_login_login)
+    void onLoginClick() {
+        presenter.onLoginClick(edtId.getText().toString(), edtPw.getText().toString(), "email");
+    }
+
+    @OnClick(R.id.btn_login_facebook)
+    void onFacebookClick() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email"));
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void onSuccess(LoginResult loginResult) {
+                presenter.onFacebookLoginSuccess(loginResult);
+            }
+
+            @Override
+            public void onCancel() {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(StringFormatChecker.isValidEmail(s.toString()) && StringFormatChecker.isValidPassword(edtPw.getText().toString()))
-                    btnLogin.setEnabled(true);
-                else
-                    btnLogin.setEnabled(false);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public void onError(FacebookException error) {
+                Log.e(TAG, "facebook onError = " + error.toString());
             }
         });
-        edtPw.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    }
 
-            }
+    @OnClick(R.id.btn_login_findPw)
+    void onFindPwClick() {
+        presenter.onFindPwClick();
+    }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(StringFormatChecker.isValidPassword(s.toString()) && StringFormatChecker.isValidEmail(edtId.getText().toString()))
-                    btnLogin.setEnabled(true);
-                else
-                    btnLogin.setEnabled(false);
-            }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        btnJoin.setOnClickListener(i->navigateActivity(JoinActivity.class));
-
-        Realm realm = Realm.getDefaultInstance();
-        ArrayMockTest testData1 = new ArrayMockTest();
-        List<ArrayElement> listData = new ArrayList<>();
-        listData.add(new ArrayElement("1"));
-        listData.add(new ArrayElement("2"));
-        listData.add(new ArrayElement("3"));
-        testData1.datas = new RealmList<ArrayElement>(listData.toArray(new ArrayElement[3]));
-        realm.beginTransaction();
-        realm.copyToRealm(testData1);
-        realm.commitTransaction();
-        Log.e("test",testData1.datas.toString());
-
-        testData1 = realm.where(ArrayMockTest.class).findFirst();
-        Log.e("test2",testData1.datas.toString());
-
-        realm.beginTransaction();
-        testData1.datas.get(0).deleteFromRealm();
-        realm.commitTransaction();
-
-        Log.e("test3",testData1.datas.toString());
+    @Override
+    public void alertCheckIdPw(){
+        tv_checkIdPw.setVisibility(View.VISIBLE);
+        Observable.timer(3, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .take(1)
+                .subscribe(tick->tv_checkIdPw.setVisibility(View.INVISIBLE)
+                ,fail->Log.e(TAG,"fail in tick alertcheckIdwPw . fail ="+fail.toString()));
     }
 }

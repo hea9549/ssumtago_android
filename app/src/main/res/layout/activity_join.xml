@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/ssumtago_darkBlue"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
     tools:context="com.lovepago.ssumtago.Presentation.Activity.JoinActivity">
 
-
-    <ImageButton
-        android:id="@+id/btn_join_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
-        app:srcCompat="@drawable/close" />
-
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blank">
+        android:background="@drawable/background_orange_gradient">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/wrapper_join_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -124,7 +113,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_join_male" />
 
             <EditText
                 android:id="@+id/edt_join_nick"
@@ -133,7 +122,7 @@
                 android:layout_marginTop="7dp"
                 android:background="@drawable/join_inputbox"
                 android:hint="사용할 닉네임을 입력해주세요"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/whiteHint"
@@ -155,10 +144,22 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/whiteHint"
                 android:textCursorDrawable="@color/white"
+                app:font="custom1"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline"
                 app:layout_constraintRight_toLeftOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <ImageView
+                android:id="@+id/img_join_valid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/valid_fail"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/edt_join_pw2"
+                app:layout_constraintRight_toRightOf="@+id/edt_join_pw2"
+                app:layout_constraintTop_toTopOf="@+id/edt_join_pw2" />
 
             <EditText
                 android:id="@+id/edt_join_pw"
@@ -172,6 +173,7 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/whiteHint"
                 android:textCursorDrawable="@color/white"
+                app:font="custom1"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline"
                 app:layout_constraintRight_toLeftOf="@+id/guideline6"
@@ -184,7 +186,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/join_inputbox"
                 android:hint="이메일 주소를 입력해주세요"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/whiteHint"
@@ -195,7 +197,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_join_male"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
@@ -203,102 +205,137 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/selector_join_enable"
                 android:text="남"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_join_enable"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline"
-                app:layout_constraintRight_toLeftOf="@+id/button5"
+                app:layout_constraintRight_toLeftOf="@+id/btn_join_female"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_join_female"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/selector_join_enable"
                 android:text="여"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_join_enable"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintLeft_toRightOf="@+id/button4"
+                app:layout_constraintLeft_toRightOf="@+id/btn_join_male"
                 app:layout_constraintRight_toLeftOf="@+id/guideline6"
-                app:layout_constraintTop_toTopOf="@+id/button4" />
+                app:layout_constraintTop_toTopOf="@+id/btn_join_male" />
 
-            <Spinner
-                android:id="@+id/spn_join_year"
+            <TextView
+                android:id="@+id/tv_join_birthday"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/join_inputbox"
-                android:gravity="center_vertical"
+                android:gravity="center"
+                android:text="년/월/일"
                 android:textColor="@color/white"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline"
                 app:layout_constraintRight_toLeftOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tv_join_privacyPolicy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="0dp"
                 android:text="@string/policy"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/checkBox3"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_join_privacyPolicy"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintLeft_toRightOf="@+id/checkBox3"
+                app:layout_constraintLeft_toRightOf="@+id/cb_join_privacyPolicy"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/checkBox3"
-                app:layout_constraintVertical_bias="0.571" />
+                app:layout_constraintTop_toTopOf="@+id/cb_join_privacyPolicy" />
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/spn_join_year"
-                app:layout_constraintRight_toRightOf="@+id/spn_join_year"
-                app:layout_constraintTop_toTopOf="@+id/spn_join_year"
-                app:srcCompat="@drawable/selectboxicon" />
+                android:layout_width="9dp"
+                android:layout_height="14dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/selectboxiconw"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_join_birthday"
+                app:layout_constraintRight_toRightOf="@+id/tv_join_birthday"
+                app:layout_constraintTop_toTopOf="@+id/tv_join_birthday" />
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/cb_join_privacyPolicy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="11dp"
+                android:button="@drawable/selector_checkbox"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/spn_join_year" />
+                app:layout_constraintRight_toLeftOf="@+id/tv_join_privacyPolicy"
+                app:layout_constraintTop_toBottomOf="@+id/tv_join_birthday" />
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/view_join_pw2CheckAnim"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
+            <View
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/edt_join_pw2"
-                app:layout_constraintDimensionRatio="h,1:1"
-                app:layout_constraintRight_toRightOf="@+id/edt_join_pw2"
-                app:layout_constraintTop_toTopOf="@+id/edt_join_pw2"
-                app:lottie_autoPlay="false"
-                app:lottie_fileName="lottie/success.json"
-                app:lottie_loop="false" />
+                android:layout_marginTop="0dp"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_join_privacyPolicy" />
+
 
         </android.support.constraint.ConstraintLayout>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/btn_join_submit"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:text="계정 만들기"
-        android:textColor="@color/ssumtago_blue"
-        android:textStyle="bold" />
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_join_close"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            app:srcCompat="@drawable/close" />
 
+        <Button
+            android:id="@+id/btn_join_submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:enabled="false"
+            android:text="계정 만들기"
+            android:textColor="@color/ssumtago_gray"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/wrapper_join_joinSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="24dp"
+                android:layout_above="@+id/tv_join_explainFinish"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/check" />
+
+            <TextView
+                android:id="@+id/tv_join_explainFinish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:lineSpacingExtra="6dp"
+                android:text="생성된 계정으로 로그인하여\n메인화면으로 이동합니다."
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

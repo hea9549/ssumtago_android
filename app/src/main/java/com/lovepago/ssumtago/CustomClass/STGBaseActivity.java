@@ -13,6 +13,8 @@ import com.lovepago.ssumtago.Presentation.Presenter.BaseViewPresenter;
 import com.lovepago.ssumtago.STGApplication;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import java.io.Serializable;
+
 /**
  * @since 2017-05-15
  * @implNote
@@ -66,8 +68,36 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void navigateActivity(Class navigateClass, Serializable... datas){
+        Intent intent = new Intent(this,navigateClass);
+        if (datas.length%2 == 1)throw new IllegalArgumentException("navigate params not match. please make pair...");
+        for(int i = 0;i<datas.length;i+=2){
+            intent.putExtra((String)datas[i],datas[i+1]);
+        }
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void popActivity(Class popClass) {
+        Intent intent = new Intent(this,popClass);
+        startActivity(intent);
+    }
+
+    @Override
+    public void popActivity(Class popClass, Serializable... datas){
+        Intent intent = new Intent(this,popClass);
+        if (datas.length%2 == 1)throw new IllegalArgumentException("popClass params not match. please make pair...");
+        for(int i = 0;i<datas.length;i+=2){
+            intent.putExtra((String)datas[i],datas[i+1]);
+        }
+        startActivity(intent);
     }
 }

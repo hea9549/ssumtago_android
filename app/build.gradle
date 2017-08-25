@@ -31,6 +31,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.5.1') {
+        exclude group: 'com.android.support'
+    }
     compile 'com.facebook.android:facebook-android-sdk:4.+'
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
@@ -45,6 +49,11 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.1.2'
+    compile 'com.airbnb.android:lottie:2.0.0'
+    compile 'com.skyfishjy.ripplebackground:library:1.0.1'
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
+    compile 'com.wefika:horizontal-picker:1.1.1'
+    compile 'com.shawnlin:number-picker:2.4.4'
     testCompile 'com.google.dagger:dagger-compiler:2.4'
     testCompile 'junit:junit:4.12'
     androidTestApt 'com.google.dagger:dagger-compiler:2.0.1'
@@ -54,10 +63,5 @@ dependencies {
     provided 'javax.annotation:jsr250-api:1.0'
     provided 'org.projectlombok:lombok:1.12.6'
     testApt 'com.google.dagger:dagger-compiler:2.0.2'
-    compile 'com.airbnb.android:lottie:2.0.0'
-
-    compile('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.5.1') {
-        exclude group: 'com.android.support'
-    }
 }
 apply plugin: 'com.google.gms.google-services'

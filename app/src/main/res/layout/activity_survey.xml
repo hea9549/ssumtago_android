@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wrapper_survey_total"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/survey_back_24"
+    tools:context="com.lovepago.ssumtago.Presentation.Activity.SurveyActivity">
+
+    <ImageButton
+        android:id="@+id/btn_survey_before"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/selector_survey_before_enable"
+        android:padding="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_survey_next"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/selector_survey_next_enable"
+        android:padding="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_survey_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/survey_top_box"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:text="Scene#1: 만남"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_survey_before"
+        app:layout_constraintLeft_toRightOf="@+id/btn_survey_before"
+        app:layout_constraintRight_toLeftOf="@+id/btn_survey_next"
+        app:layout_constraintTop_toTopOf="@+id/btn_survey_before" />
+
+    <TextView
+        android:id="@+id/tv_survey_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:lineSpacingExtra="10dp"
+        android:text="상대방과 몇번의 만남 후에 연인으로 발전 혹은 실패했나요?"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_survey_section" />
+
+    <ProgressBar
+        android:id="@+id/progress_survey_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_survey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:progress="40" />
+
+    <!-- 4분할 인디케이터
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/constraintLayout">
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="2.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/indicator_inactive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/indicator_inactive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/view5"
+            app:layout_constraintRight_toLeftOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/indicator_inactive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/view"
+            app:layout_constraintRight_toLeftOf="@+id/view4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/indicator_inactive"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/view3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+    -->
+
+
+    <FrameLayout
+        android:id="@+id/wrapper_survey_answer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/progress_survey_progress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_survey_question"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/wrapper_survey_finish1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/survey_back_24"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_survey_finishMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:lineSpacingExtra="15dp"
+            android:text="@string/survey_finish_main_ssum"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_survey_finishTip"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_survey_finishTip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/survey_finish_tip_ssum"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_survey_submit"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/box_round_white"
+            android:text="제출합니다"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/wrapper_survey_finish2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/survey_back_24"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/check"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:text="썸포트를 성공적으로\n제출했습니다!"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/wrapper_survey_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/survey_back_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_survey_startMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="23dp"
+            android:gravity="center"
+            android:lineSpacingExtra="15dp"
+            android:text="@string/survey_start_main_ssum"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_survey_startTip"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_survey_startTip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/survey_start_tip_ssum"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_survey_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_survey_startMain" />
+
+        <Button
+            android:id="@+id/btn_survey_start"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/box_round_white"
+            android:text="시작합니다"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
