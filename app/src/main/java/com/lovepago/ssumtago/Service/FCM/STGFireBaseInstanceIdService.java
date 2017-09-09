@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.lovepago.ssumtago.Data.Model.PushData;
 import com.lovepago.ssumtago.STGApplication;
 import com.lovepago.ssumtago.Service.UserService;
 
