@@ -15,6 +15,8 @@ public interface SurveyPresenter {
 
     void onSubmitClick();
 
+    boolean isUserSruveyYN();
+
     interface View extends BaseViewPresenter{
         void finishSurvey();
         void setQuestion(Question question);

@@ -3,6 +3,7 @@ package com.lovepago.ssumtago.Service;
 
 import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Data.Model.User;
+import com.lovepago.ssumtago.Data.Model.VersionDTO;
 
 import java.util.List;
 
@@ -24,7 +25,6 @@ public interface UserService {
 
     Observable<User> getUserObservable();
 
-
     User getUser();
 
     Observable<ResponseBody> checkFacebook(String token);
@@ -34,4 +34,6 @@ public interface UserService {
     Observable<List<PredictReport>> getPredictReportsObservable();
 
     Observable<ResponseBody> withDraw();
+
+    Observable<VersionDTO> getVersions();
 }

@@ -26,6 +26,7 @@ public class Answer6 extends Fragment implements AnswerInterface{
     List<Button> btn_answers;
     private List<Answer> answers;
     private String selectAnswerCode;
+    private long clickMills;
 
     @Nullable
     @Override
@@ -34,6 +35,8 @@ public class Answer6 extends Fragment implements AnswerInterface{
         ButterKnife.bind(this,view);
         for (Button btn : btn_answers) {
             btn.setOnClickListener(v -> {
+                if (System.currentTimeMillis()-clickMills<500)return;
+                clickMills= System.currentTimeMillis();
                 buttonSelect((Button) v);
                 ((SurveyActivity) getActivity()).onNextClick();
             });

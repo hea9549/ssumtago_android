@@ -11,7 +11,7 @@ import javax.inject.Inject;
  */
 
 public class FacebookJoinActivityPresenterImpl implements FacebookJoinActivityPresenter{
-    private String TAG = "fbJoinPresenterImpl";
+    private String TAG = "fbJoinPresenter";
     private UserService userService;
     private View view;
 
@@ -32,7 +32,6 @@ public class FacebookJoinActivityPresenterImpl implements FacebookJoinActivityPr
         userService.register(accountId,token,"facebook",name,sex,birthday)
                 .subscribe(success->{
                     view.cancelDialog();
-                    view.makeToast("회원가입 성공");
                     view.joinSuccess();
                 },error->{
                     view.cancelDialog();

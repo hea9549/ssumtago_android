@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.lovepago.ssumtago.CustomClass.CustomView.STGLoadingDialog;
 import com.lovepago.ssumtago.Presentation.Presenter.BaseViewPresenter;
 import com.lovepago.ssumtago.STGApplication;
 import com.tsengvn.typekit.TypekitContextWrapper;
@@ -22,7 +25,7 @@ import java.io.Serializable;
  * just use STGOnCreate
  * */
 public abstract class STGBaseActivity extends AppCompatActivity implements BaseViewPresenter {
-    private ProgressDialog progressDialog;
+    private STGLoadingDialog stgLoadingDialog;
     private String TAG = "STGBaseActivity";
 
     public abstract void STGOnCreate(@Nullable Bundle savedInstanceState);
@@ -31,30 +34,30 @@ public abstract class STGBaseActivity extends AppCompatActivity implements BaseV
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        progressDialog = new ProgressDialog(this);
+        stgLoadingDialog = new STGLoadingDialog(this);
         STGOnCreate(savedInstanceState);
+        Tracker mTracker = ((STGApplication)getApplication()).getDefaultTracker();
+        mTracker.setScreenName(getClass().getSimpleName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
     public void makeDialog(String message) {
-        if(progressDialog == null){
+        if(stgLoadingDialog == null){
             Log.e(TAG,"in make Dialog, dialog is null");
             return;
         }
-        if(progressDialog.isShowing()){
+        if(stgLoadingDialog.isShowing()){
             Log.e(TAG,"dialog is already showing... cancel showing and show new one");
-            progressDialog.dismiss();
+            stgLoadingDialog.dismiss();
         }
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setMessage(message);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        stgLoadingDialog.show();
     }
 
     @Override
     public void cancelDialog() {
-        if(progressDialog == null)return;
-        if(progressDialog.isShowing())progressDialog.dismiss();
+        if(stgLoadingDialog == null)return;
+        if(stgLoadingDialog.isShowing())stgLoadingDialog.dismiss();
     }
 
     @Override

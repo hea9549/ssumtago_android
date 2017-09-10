@@ -29,8 +29,8 @@ public class AppModule {
 
     @Singleton
     @Provides
-    UserService provideUserService(){
-        return new UserServiceImpl();
+    UserService provideUserService(Context context){
+        return new UserServiceImpl(context);
     }
 
     @Singleton

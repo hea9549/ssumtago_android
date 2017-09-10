@@ -5,17 +5,28 @@
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true">
 
+    <TextView
+        android:id="@+id/textAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="나이를 입력해주세요"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
+
     <com.shawnlin.numberpicker.NumberPicker
         android:id="@+id/numberPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_below="@+id/textAge"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:descendantFocusability="blocksDescendants"
         app:np_dividerColor="@color/ssumtago_orange"
         app:np_max="55"
         app:np_min="15"
-        android:descendantFocusability="blocksDescendants"
         app:np_selectedTextColor="@color/ssumtago_orange" />
 
     <Button
@@ -24,10 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/numberPicker"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/box_gray_border"
-        android:text="설정"
-        android:layout_marginBottom="20dp"
+        android:text="입력"
         android:textColor="@color/black"
         android:textSize="16dp" />
 

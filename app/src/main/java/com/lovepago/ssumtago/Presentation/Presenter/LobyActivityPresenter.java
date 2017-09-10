@@ -25,5 +25,7 @@ public interface LobyActivityPresenter {
 
 
         void setDate(String date);
+
+        void makeAlertDialg(String message);
     }
 }

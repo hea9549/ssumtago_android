@@ -18,6 +18,7 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.lovepago.ssumtago.CustomClass.STGBaseActivity;
+import com.lovepago.ssumtago.CustomClass.STGPreference;
 import com.lovepago.ssumtago.Domain.StringFormatChecker;
 import com.lovepago.ssumtago.Presentation.Presenter.LoginActivityPresenter;
 import com.lovepago.ssumtago.R;
@@ -30,6 +31,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import rx.Observable;
@@ -38,6 +40,7 @@ import rx.android.schedulers.AndroidSchedulers;
 
 public class LoginActivity extends STGBaseActivity implements LoginActivityPresenter.View {
     private static final String TAG = "LoginActivity";
+    private STGPreference preference;
     @Inject
     LoginActivityPresenter presenter;
 
@@ -67,6 +70,12 @@ public class LoginActivity extends STGBaseActivity implements LoginActivityPrese
         STGApplication.getComponent().inject(this);
         presenter.setView(this);
         callbackManager = CallbackManager.Factory.create();
+        preference = new STGPreference(this);
+        if (preference.getValue(STGPreference.PREF_AUTO_LOGIN, false)) {
+            presenter.onLoginClick(preference.getValue(STGPreference.PREF_ID, "")
+                    , preference.getValue(STGPreference.PREF_PW, "")
+                    , preference.getValue(STGPreference.PREF_LOGIN_TYPE, ""));
+        }
     }
 
     @OnTextChanged(R.id.edt_login_id)
@@ -76,6 +85,7 @@ public class LoginActivity extends STGBaseActivity implements LoginActivityPrese
         else
             btnLogin.setEnabled(false);
     }
+
     @OnTextChanged(R.id.edt_login_pw)
     void onPwTextChange(CharSequence sequence) {
         if (StringFormatChecker.isValidPassword(sequence.toString()) && StringFormatChecker.isValidId(edtId.getText().toString()))
@@ -134,12 +144,17 @@ public class LoginActivity extends STGBaseActivity implements LoginActivityPrese
     }
 
     @Override
-    public void alertCheckIdPw(){
+    public void alertCheckIdPw() {
         tv_checkIdPw.setVisibility(View.VISIBLE);
         Observable.timer(3, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .take(1)
-                .subscribe(tick->tv_checkIdPw.setVisibility(View.INVISIBLE)
-                ,fail->Log.e(TAG,"fail in tick alertcheckIdwPw . fail ="+fail.toString()));
+                .subscribe(tick -> tv_checkIdPw.setVisibility(View.INVISIBLE)
+                        , fail -> Log.e(TAG, "fail in tick alertcheckIdwPw . fail =" + fail.toString()));
+    }
+
+    @OnCheckedChanged(R.id.cb_login_autologin)
+    void onChecked(boolean isChecked) {
+        preference.put(STGPreference.PREF_AUTO_LOGIN, isChecked);
     }
 }

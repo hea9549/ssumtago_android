@@ -39,7 +39,7 @@
     <EditText
         android:id="@+id/edt_login_id"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="46dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/login_edit_text"
         android:gravity="center"
@@ -52,14 +52,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline3"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_login_pw" />
 
 
     <EditText
         android:id="@+id/edt_login_pw"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="46dp"
         android:background="@drawable/login_edit_text"
         android:gravity="center"
         android:hint="비밀번호 입력"
@@ -71,7 +72,9 @@
         app:font="custom1"
         app:layout_constraintLeft_toLeftOf="@+id/guideline3"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_id" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/cb_login_autologin" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -93,14 +96,14 @@
         android:id="@+id/cb_login_autologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:button="@drawable/selector_checkbox"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10dp"
         android:text="자동 로그인"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_pw" />
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_login" />
 
     <Button
         android:id="@+id/btn_login_join"
@@ -139,28 +142,30 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/selector_login_enable"
         android:enabled="false"
         android:text="로그인"
+        android:textStyle="bold"
         android:textColor="@drawable/selector_login_enable"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline3"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/cb_login_autologin" />
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_facebook" />
 
     <Button
         android:id="@+id/btn_login_facebook"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:textStyle="bold"
         android:background="@drawable/back_login_facebook"
         android:text="페이스북 로그인"
         android:textColor="@color/white"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline3"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login_login" />
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_join" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline13"

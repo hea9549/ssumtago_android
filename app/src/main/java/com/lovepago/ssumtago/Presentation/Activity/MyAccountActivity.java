@@ -1,5 +1,6 @@
 package com.lovepago.ssumtago.Presentation.Activity;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
@@ -69,7 +70,7 @@ public class MyAccountActivity extends STGBaseActivity {
 
     @OnClick(R.id.btn_myAccount_withdraw)
     void onWithDrawClick(){
-        makeToast("회원탈퇴 처리중입니다...");
+        makeDialog("회원탈퇴 처리중입니다...");
         userService.withDraw()
                 .subscribe(responseBody -> {
                     cancelDialog();
@@ -91,7 +92,10 @@ public class MyAccountActivity extends STGBaseActivity {
         preference.put(STGPreference.PREF_LAST_SURVEYED,"");
         preference.put(STGPreference.PREF_ID,"");
         preference.put(STGPreference.PREF_PW,"");
-        navigateActivity(LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
 

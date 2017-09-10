@@ -6,6 +6,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -47,6 +48,7 @@ import rx.Observable;
  * */
 public class SurveyActivity extends STGBaseActivity implements SurveyPresenter.View {
     private static final String TAG = "SurveyActivity";
+    private long submitTime;
     @BindView(R.id.wrapper_survey_answer)
     FrameLayout wrapper_answer;
     @BindView(R.id.btn_survey_next)
@@ -182,6 +184,33 @@ public class SurveyActivity extends STGBaseActivity implements SurveyPresenter.V
                 });
     }
 
+    @Override
+    public void onBackPressed() {
+        if(!presenter.isUserSruveyYN()){
+            new AlertDialog.Builder(this)
+                    .setTitle("종료")
+                    .setMessage("앱을 종료하시겠습니까?")
+                    .setPositiveButton("예",((dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    }))
+                    .setNegativeButton("아니오",((dialog, which) -> dialog.dismiss()))
+                    .create()
+                    .show();
+        }else{
+            new AlertDialog.Builder(this)
+                    .setTitle("돌아가기")
+                    .setMessage("메인화면으로 돌아가겠습니까?")
+                    .setPositiveButton("예",((dialog, which) -> {
+                        dialog.dismiss();
+                        navigateActivity(LobyActivity.class);
+                    }))
+                    .setNegativeButton("아니오",((dialog, which) -> dialog.dismiss()))
+                    .create()
+                    .show();
+        }
+    }
+
     @OnClick(R.id.btn_survey_start)
     void onStartClick(){
         wrapper_start.setVisibility(View.INVISIBLE);
@@ -189,6 +218,9 @@ public class SurveyActivity extends STGBaseActivity implements SurveyPresenter.V
 
     @OnClick(R.id.btn_survey_submit)
     void onSubmitClick(){
+        long curTime = System.currentTimeMillis();
+        if (curTime - submitTime<3000)return;
+        submitTime = curTime;
         presenter.onSubmitClick();
     }
 

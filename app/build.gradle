@@ -14,8 +14,8 @@ android {
         applicationId "com.lovepago.ssumtago"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -59,6 +59,7 @@ dependencies {
     androidTestApt 'com.google.dagger:dagger-compiler:2.0.1'
     apt 'com.google.dagger:dagger-compiler:2.4'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.google.android.gms:play-services-analytics:9.4.0'
     apt 'org.projectlombok:lombok:1.12.6'
     provided 'javax.annotation:jsr250-api:1.0'
     provided 'org.projectlombok:lombok:1.12.6'

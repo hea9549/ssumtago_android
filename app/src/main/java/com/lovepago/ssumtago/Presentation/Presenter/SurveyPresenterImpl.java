@@ -142,8 +142,10 @@ public class SurveyPresenterImpl implements SurveyPresenter {
 
     @Override
     public void onSubmitClick() {
+        view.makeDialog("");
         endDate = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SZ");
+        SimpleDateFormat prefFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         predictReport.setStartTime(simpleDateFormat.format(startDate));
         predictReport.setEndTime(simpleDateFormat.format(endDate));
         if(userService.getUser().isSurveyedYN()){
@@ -178,6 +180,8 @@ public class SurveyPresenterImpl implements SurveyPresenter {
         Collections.sort(predictReport.getData(), (e1, e2) -> Integer.valueOf(e1.getQuestionCode().substring(8)) - Integer.valueOf(e2.getQuestionCode().substring(8)));
         if (!userService.getUser().isSurveyedYN()) {
             surveyService.submitStartReport(predictReport)
+                    .doOnError(e->view.cancelDialog())
+                    .doOnNext(n->view.cancelDialog())
                     .subscribe(response -> {
                         view.submitFinish();
                         User user = userService.getUser();
@@ -188,6 +192,8 @@ public class SurveyPresenterImpl implements SurveyPresenter {
                     }, fail -> Log.e(TAG, "fail in submit previous report. error = " + fail.toString()));
         } else {
             surveyService.submitReport(predictReport)
+                    .doOnError(e->view.cancelDialog())
+                    .doOnNext(n->view.cancelDialog())
                     .subscribe(response -> {
                         view.submitFinish();
                         User user = userService.getUser();
@@ -197,7 +203,13 @@ public class SurveyPresenterImpl implements SurveyPresenter {
                         realm.beginTransaction();
                         user.getPredictReports().add(response);
                         realm.commitTransaction();
+                        preference.put(STGPreference.PREF_LAST_SURVEYED,prefFormat.format(endDate));
                     }, fail -> Log.e(TAG, "fail in submit report. error = " + fail.getMessage()));
         }
+    }
+
+    @Override
+    public boolean isUserSruveyYN() {
+        return userService.getUser().isSurveyedYN();
     }
 }

@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="ssumtago_blue">#3d92e6</color>
     <color name="ssumtago_darkBlue">#FF024F7A</color>
-    <color name="ssumtago_orange">#FFFC7055</color>
+    <color name="ssumtago_orange">#fc886e</color>
     <color name="ssumtago_gray">#A9A9A9</color>
     <color name="ssumtago_white_gray">#FFF3F3F3</color>
     <color name="black">#000000</color>
@@ -17,9 +17,9 @@
     <color name="ssumInputBox">#FFE5E5E5</color>
     <color name="splitLine">#e5e5e5</color>
 
-    <color name="selector_answer_notSelect">#19ffffff</color>
+    <color name="selector_answer_notSelect">#33ffffff</color>
     <color name="answer_box_inactive">#05ffffff</color>
-    <color name="selector_answer_select">#4bffffff</color>
+    <color name="selector_answer_select">#33ffffff</color>
 
     <color name="indicator_inactive">#4cffffff</color>
     <color name="indicator_active">#ffffff</color>

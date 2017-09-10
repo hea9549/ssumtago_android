@@ -22,15 +22,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/btn_devInfo_close"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="@null"
         android:src="@drawable/closeblack"
         app:layout_constraintBottom_toBottomOf="@+id/textView26"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView26" />
+        app:layout_constraintTop_toTopOf="@+id/textView26"
+        app:layout_constraintRight_toLeftOf="@+id/guideline19"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <ImageView
@@ -238,7 +238,7 @@
         android:id="@+id/textView32"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="0dp"
         android:text="@string/developerInfo_hash"
         android:textColor="#e0dddd"
         android:textSize="14dp"
@@ -247,10 +247,13 @@
         android:lineSpacingExtra="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline16"
         app:layout_constraintRight_toLeftOf="@+id/guideline19"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView33" />
 
     <TextView
-        android:background="#FFFE6247"
+        android:background="#fc886e"
         android:id="@+id/textView33"
         android:layout_width="0dp"
         android:layout_height="40dp"

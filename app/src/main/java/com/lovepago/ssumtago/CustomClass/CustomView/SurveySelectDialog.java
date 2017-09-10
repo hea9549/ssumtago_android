@@ -23,6 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by ParkHaeSung on 2017-08-20.
@@ -64,5 +65,11 @@ public class SurveySelectDialog extends Dialog {
                 activity.finish();
             }
         });
+    }
+
+    @OnClick(R.id.btn_selectSurvey_close)
+    void onCloseclick() {
+        if (this.isShowing())
+            dismiss();
     }
 }

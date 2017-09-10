@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.animation.LinearInterpolator;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.lovepago.ssumtago.CustomClass.CustomView.STGAlertDialog;
 import com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView;
 import com.lovepago.ssumtago.CustomClass.CustomView.SurveySelectDialog;
 import com.lovepago.ssumtago.CustomClass.STGBaseActivity;
@@ -52,8 +54,9 @@ public class LobyActivity extends STGBaseActivity implements LobyActivityPresent
     @BindView(R.id.tv_loby_percentDesc)
     TextView tv_percentDesc;
 
-    AnimatorSet mAnimatorSet;
-    STGListener listener = new STGListener();
+    private AnimatorSet mAnimatorSet;
+    private STGListener listener = new STGListener();
+    private long backButtonMills;
 
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
@@ -105,26 +108,26 @@ public class LobyActivity extends STGBaseActivity implements LobyActivityPresent
     }
 
     @OnClick(R.id.btn_loby_menu)
-    void onMenuClick(){
+    void onMenuClick() {
         popActivity(EtcActivity.class);
     }
 
     @Override
     public void setPercent(int percent) {
-        if (percent == -1) {
+        if (percent == -1 || percent == -100) {
             tv_percent.setText("?__?");
             tv_desc.setText("연필 모양을 눌러 썸포트를 작성해주세요!");
             return;
         }
-        if (percent==-2){
+        if (percent == -200) {
             tv_percent.setText("?__?");
-            tv_desc.setText("결과를 기다리고있어요!");
+            tv_percentDesc.setText("결과를 기다리고있어요!");
             return;
         }
-        for (CheckBox checkBox : cbs_percents){
+        for (CheckBox checkBox : cbs_percents) {
             checkBox.setChecked(false);
         }
-        Observable.interval(30, TimeUnit.MILLISECONDS)
+        Observable.interval(20, TimeUnit.MILLISECONDS)
                 .take(percent)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(d -> {
@@ -143,6 +146,18 @@ public class LobyActivity extends STGBaseActivity implements LobyActivityPresent
     @Override
     public void setDate(String date) {
         tv_reportDate.setText(date);
+    }
+
+    @Override
+    public void makeAlertDialg(String message) {
+        new STGAlertDialog(this, message).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - backButtonMills < 3000) finish();
+        backButtonMills = System.currentTimeMillis();
+        Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
     }
 
     class STGListener implements Animator.AnimatorListener {

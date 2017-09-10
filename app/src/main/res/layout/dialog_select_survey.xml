@@ -43,7 +43,7 @@
     <ListView
         android:id="@+id/view_selectSurvey_list"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="198dp"
         android:background="@drawable/box_semi_round_white_lower"
         app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
         app:layout_constraintRight_toRightOf="@+id/constraintLayout"

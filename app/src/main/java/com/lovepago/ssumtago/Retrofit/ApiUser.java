@@ -4,6 +4,7 @@ package com.lovepago.ssumtago.Retrofit;
 import com.lovepago.ssumtago.Data.Model.LoginDTO;
 import com.lovepago.ssumtago.Data.Model.UpdateFcmDTO;
 import com.lovepago.ssumtago.Data.Model.User;
+import com.lovepago.ssumtago.Data.Model.VersionDTO;
 
 import okhttp3.ResponseBody;
 import retrofit2.Response;
@@ -49,4 +50,7 @@ public interface ApiUser {
     //로그인 [PostManTest : NOT, UnitTest : NOT ]
     @POST("sessions")
     Observable<User> login(@Body User user);
+
+    @GET("versions")
+    Observable<VersionDTO> getVersion();
 }

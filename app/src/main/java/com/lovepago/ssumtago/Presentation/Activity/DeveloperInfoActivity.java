@@ -7,10 +7,19 @@ import android.os.Bundle;
 import com.lovepago.ssumtago.CustomClass.STGBaseActivity;
 import com.lovepago.ssumtago.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class DeveloperInfoActivity extends STGBaseActivity {
 
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_developer_info);
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_devInfo_close)
+    void onCloseClick(){
+        finish();
     }
 }

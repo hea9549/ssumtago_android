@@ -175,6 +175,7 @@ public class JoinActivity extends STGBaseActivity implements JoinActivityPresent
     public void joinSuccess(){
         wrapper_info.setVisibility(View.INVISIBLE);
         btn_close.setVisibility(View.INVISIBLE);
+        btn_submit.setVisibility(View.INVISIBLE);
         wrapper_joinSuccess.setVisibility(View.VISIBLE);
         Observable.timer(2, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())

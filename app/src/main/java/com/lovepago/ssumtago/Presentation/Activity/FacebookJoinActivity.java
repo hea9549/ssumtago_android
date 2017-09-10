@@ -41,6 +41,7 @@ public class FacebookJoinActivity extends STGBaseActivity implements FacebookJoi
     private String token;
     private String sex;
     private String birthday;
+
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_facebook_join);
@@ -52,16 +53,16 @@ public class FacebookJoinActivity extends STGBaseActivity implements FacebookJoi
 
     @Override
     public void joinSuccess() {
-
+        navigateActivity(StartGuideActivity.class);
     }
 
-    private void getIntentData(){
+    private void getIntentData() {
         accountId = getIntent().getStringExtra("accountId");
-        token= getIntent().getStringExtra("token");
+        token = getIntent().getStringExtra("token");
     }
 
     @OnClick(R.id.btn_facebookJoin_submit)
-    void onSubmitClick(){
+    void onSubmitClick() {
         if (sex == null) {
             makeToast("성별을 선택해 주세요");
             return;
@@ -70,26 +71,27 @@ public class FacebookJoinActivity extends STGBaseActivity implements FacebookJoi
             makeToast("생일을 입력해 주세요");
             return;
         }
-        if (tv_nick.getText().toString().isEmpty()){
+        if (tv_nick.getText().toString().isEmpty()) {
             makeToast("닉네임을 입력해 주세요");
             return;
         }
-        presenter.register(accountId,token,tv_nick.getText().toString(),sex,birthday);
+        presenter.register(accountId, token, tv_nick.getText().toString(), sex, birthday);
     }
 
     @OnClick(R.id.btn_facebookJoin_male)
-    void onMaleClick(){
+    void onMaleClick() {
         btn_male.setEnabled(false);
         btn_female.setEnabled(true);
-        sex="man";
+        sex = "man";
     }
 
     @OnClick(R.id.btn_facebookJoin_female)
-    void onFemaleClick(){
+    void onFemaleClick() {
         btn_female.setEnabled(false);
         btn_male.setEnabled(true);
-        sex="woman";
+        sex = "woman";
     }
+
     @OnClick(R.id.tv_facebookJoin_birthday)
     void onBirthdayClick() {
         TimePickerView birthdayPicker = new TimePickerView.Builder(this, (date, view) -> {
@@ -101,12 +103,13 @@ public class FacebookJoinActivity extends STGBaseActivity implements FacebookJoi
                 .setType(new boolean[]{true, true, true, false, false, false})
                 .setCancelText("취소")
                 .setSubmitText("선택")
-                .setLabel("년","월","일","시","분","초")
+                .setLabel("년", "월", "일", "시", "분", "초")
                 .setOutSideCancelable(false)
                 .build();
         birthdayPicker.setDate(Calendar.getInstance());
         birthdayPicker.show();
     }
+
     @OnCheckedChanged(R.id.cb_facebookJoin_privacyPolicy)
     void onPrivacyCheckChange(boolean isChecked) {
         if (isChecked) {

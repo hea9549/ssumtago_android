@@ -53,6 +53,7 @@ public class Answer1 extends Fragment implements AnswerInterface {
                 selectAnswerCode = "020250"+np.getValue();
                 ((SurveyActivity)getActivity()).setNextEnabled(true);
                 d.dismiss();
+                ((SurveyActivity)getActivity()).onNextClick();
             }
         });
         d.show();
@@ -73,7 +74,7 @@ public class Answer1 extends Fragment implements AnswerInterface {
     @Override
     public void setSelectedAnswer(String answerCode) {
         if (answerCode == null)return;
-        btn_answer.setText(Integer.valueOf(answerCode.substring(5)));
+        btn_answer.setText(""+Integer.valueOf(answerCode.substring(5)));
         ((SurveyActivity)getActivity()).setNextEnabled(true);
     }
 }

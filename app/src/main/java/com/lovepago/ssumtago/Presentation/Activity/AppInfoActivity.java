@@ -11,6 +11,7 @@ import com.lovepago.ssumtago.STGApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AppInfoActivity extends STGBaseActivity{
     @BindView(R.id.tv_appInfo_accuracy)
@@ -41,6 +42,11 @@ public class AppInfoActivity extends STGBaseActivity{
 
     public void setDataSet(int dataNum){
         tv_learningDataSet.setText("학습데이터 수 : "+dataNum);
+    }
+
+    @OnClick(R.id.btn_appInfo_close)
+    void onCloseClick(){
+        finish();;
     }
 }
 
