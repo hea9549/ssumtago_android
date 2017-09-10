@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.lovepago.ssumtago.CustomClass.STGPreference;
-import com.lovepago.ssumtago.Data.Model.PredictReport;
+import com.lovepago.ssumtago.Data.Model.*;
 import com.lovepago.ssumtago.Service.SurveyService;
 import com.lovepago.ssumtago.Service.UserService;
 
@@ -114,7 +114,7 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
     private void showReportResult() {
         PredictReport recentReport = userReports.get(reportIndex);
         if (recentReport.getResult().size()==0)return;
-        view.setPercent((int) (recentReport.getResult().get(0).getVal() * 100));
+        view.setPercent((int)(recentReport.getResult().get(0).getResults().get(0).getValue() * 100));
         SimpleDateFormat serverDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         String strDate = recentReport.getRequestTime();
         try {

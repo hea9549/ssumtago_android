@@ -21,6 +21,6 @@ public class PredictReport extends RealmObject{
     String responseTime;
     String startTime;
     String endTime;
-    RealmList<RealmDouble> result;
+    RealmList<ResultFormat> result;
     RealmList<SsumJi> data;
 }
