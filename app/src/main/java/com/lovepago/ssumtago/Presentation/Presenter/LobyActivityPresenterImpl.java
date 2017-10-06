@@ -113,6 +113,7 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
 
     private void showReportResult() {
         PredictReport recentReport = userReports.get(reportIndex);
+        if (recentReport.getResult() == null)view.setPercent(-200);
         if (recentReport.getResult().size()==0)return;
         view.setPercent((int)(recentReport.getResult().get(0).getResults().get(0).getValue() * 100));
         SimpleDateFormat serverDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");

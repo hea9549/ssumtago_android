@@ -55,6 +55,7 @@ public class SplashActivity extends STGBaseActivity{
                     }
 
                 },fail->{
+                    Log.e(TAG,"fial in get version = "+fail.toString());
                     Toast.makeText(this, "버전 정보를 받아오는데 실패했습니다. 페이스북 럽파고 페이지를 확인해주세요", Toast.LENGTH_SHORT).show();
                     finish();
                 });
@@ -81,7 +82,6 @@ public class SplashActivity extends STGBaseActivity{
 
             }
         });
-
     }
 
     private void checkDB(VersionDTO versionDTO) {

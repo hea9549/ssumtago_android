@@ -23,7 +23,6 @@ public interface LobyActivityPresenter {
 
         void makeSelectSurveyDialog(List<Survey> surveys);
 
-
         void setDate(String date);
 
         void makeAlertDialg(String message);
