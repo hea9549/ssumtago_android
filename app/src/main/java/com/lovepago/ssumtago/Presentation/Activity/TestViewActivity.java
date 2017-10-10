@@ -1,91 +1,59 @@
 package com.lovepago.ssumtago.Presentation.Activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.animation.LinearInterpolator;
+import android.view.View;
 
-import com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.lovepago.ssumtago.Domain.ResourceUtil;
 import com.lovepago.ssumtago.R;
+import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public class TestViewActivity extends AppCompatActivity {
-    STGWaveView waveView;
-    AnimatorSet mAnimatorSet;
-    STGListener listener = new STGListener();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        List<Animator> animators = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_view);
-        waveView = (STGWaveView)findViewById(R.id.view_loby_waveView);
-        waveView.setShapeType(STGWaveView.ShapeType.SQUARE);
-        waveView.setWaterLevelRatio(0.5f);
-        ObjectAnimator waveShiftAnim = ObjectAnimator.ofFloat(
-                waveView, "waveShiftRatio", 0f, 1f);
-        waveShiftAnim.setRepeatCount(ValueAnimator.INFINITE);
-        waveShiftAnim.setDuration(1000);
-        waveShiftAnim.setInterpolator(new LinearInterpolator());
-        animators.add(waveShiftAnim);
-        ObjectAnimator amplitudeAnim = ObjectAnimator.ofFloat(
-                waveView, "amplitudeRatio", 0.02f, 0.05f);
-        amplitudeAnim.setDuration(2000);
-        amplitudeAnim.addListener(listener);
-        amplitudeAnim.setInterpolator(new LinearInterpolator());
-        animators.add(amplitudeAnim);
-        waveView.setWaveColor(
-                Color.parseColor("#50019A"),
-                Color.parseColor("#3901D4"));
+        FoldingCell foldingCell = (FoldingCell)findViewById(R.id.testFoldingCell);
+        LineChart lineChart = (LineChart)findViewById(R.id.testChart);
+        foldingCell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foldingCell.toggle(false);
+            }
+        });
 
-        mAnimatorSet = new AnimatorSet();
-        mAnimatorSet.playTogether(animators);
-        waveView.setShowWave(true);
-        mAnimatorSet.start();
+
+        List<Entry> entries = new ArrayList<Entry>();
+        entries.add(new Entry(0,2));
+        entries.add(new Entry(1,5));
+        entries.add(new Entry(2,9));
+        entries.add(new Entry(3,10));
+        entries.add(new Entry(4,7));
+
+        LineDataSet lineDataSet = new LineDataSet(entries,"datas");
+        lineDataSet.setCircleColor(ResourceUtil.getColor(this,R.color.ssumtago_orange));
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFillDrawable(getResources().getDrawable(R.drawable.background_orange_gradient));
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        LineData lineData = new LineData(lineDataSet);
+        lineChart.setPinchZoom(false);
+        lineChart.setDoubleTapToZoomEnabled(false);
+        lineChart.setData(lineData);
+        lineChart.getAxisRight().setEnabled(false);
+        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        lineChart.getXAxis().setGridColor(ResourceUtil.getColor(this,R.color.white));
+        lineChart.getAxisLeft().setGridColor(ResourceUtil.getColor(this,R.color.white));
+        lineChart.invalidate();
     }
-    class STGListener implements Animator.AnimatorListener{
-        float before = 0;
-        float after = 0;
-        @Override
-        public void onAnimationStart(Animator animation) {
 
-        }
-
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            Random random = new Random();
-            animation.cancel();
-            float randomFloat = random.nextFloat();
-            if(before == 0)before = 0.05f;
-            else before = after;
-            randomFloat = random.nextFloat();
-            after = randomFloat - (int)randomFloat;
-            while (after>0.08f)after%=0.08f;
-            while (after<0.02f)after+=0.02f;
-            Log.e("waveView","here = "+before+","+after);
-            ObjectAnimator animator = ObjectAnimator.ofFloat(waveView,"amplitudeRatio",before,after);
-            Log.e("waveView","tick!!");
-            animator.setDuration(2000);
-            animator.addListener(this);
-            animator.setInterpolator(new LinearInterpolator());
-            animator.start();
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-
-        }
-    }
 }

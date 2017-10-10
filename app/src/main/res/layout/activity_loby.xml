@@ -7,746 +7,785 @@
     android:background="@color/white"
     tools:context="com.lovepago.ssumtago.Presentation.Activity.LobyActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#FAFAFA"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <com.ramotion.foldingcell.FoldingCell
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline20"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/guideline20">
 
-        <CheckBox
-            android:id="@+id/cb_percent_7"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_17"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_8"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/ssumPercentTitle"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="썸공확률"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="32dp"
+                    />
+            </RelativeLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_below="@+id/ssumPercentTitle"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="#FAFAFA">
 
-        <CheckBox
-            android:id="@+id/cb_percent_9"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginBottom="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_19"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_10"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_5"
-            app:layout_constraintVertical_chainStyle="packed" />
+            <CheckBox
+                android:id="@+id/cb_percent_7"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_17"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_8"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_5"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_15"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_6"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_1"
-            app:layout_constraintVertical_chainStyle="packed" />
+            <CheckBox
+                android:id="@+id/cb_percent_9"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_19"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_10"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_5"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_6"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_5"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_16"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_2" />
+            <CheckBox
+                android:id="@+id/cb_percent_5"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_15"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_6"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_1"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_10"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_9"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_20"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_6" />
+            <CheckBox
+                android:id="@+id/cb_percent_6"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_5"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_16"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_2" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_2"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_1"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_12"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_4" />
+            <CheckBox
+                android:id="@+id/cb_percent_10"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_9"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_20"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_6" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_4"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_3"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_14"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_8"
-            />
+            <CheckBox
+                android:id="@+id/cb_percent_2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_1"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_12"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_4" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_3"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_13"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_4"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_7"
-            app:layout_constraintVertical_chainStyle="packed" />
+            <CheckBox
+                android:id="@+id/cb_percent_4"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_3"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_14"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_8"
+                />
 
-        <CheckBox
-            android:id="@+id/cb_percent_1"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_11"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_2"
-            app:layout_constraintTop_toBottomOf="@+id/cb_percent_3"
-            app:layout_constraintVertical_chainStyle="packed" />
+            <CheckBox
+                android:id="@+id/cb_percent_3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_13"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_4"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_7"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_8"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/circle_line_5"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_7"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_18"
+            <CheckBox
+                android:id="@+id/cb_percent_1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_11"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_2"
+                app:layout_constraintTop_toBottomOf="@+id/cb_percent_3"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_8"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/circle_line_5"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_7"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_18"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_20"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_10"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_10"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_30"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_10" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_16"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_6"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_6"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_26"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_6" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_15"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_5"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_25"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_5"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_5"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_18"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_8"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_8"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_28"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_8" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_17"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_7"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_27"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_7"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_7" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_19"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_9"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_29"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_9"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_9" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_11"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_1"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_21"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_1"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_1" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_12"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_2"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_2"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_22"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_2" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_13"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_3"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_23"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_3"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_3" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_14"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_line_4"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_4"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_4"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_24"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_4" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_30"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_20"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_20"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_40"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_20" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_26"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_16"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_16"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_36"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_16" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_25"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_15"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_35"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_15"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_15" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_22"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_12"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_12"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_32"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_12" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_21"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_11"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_31"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_11"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_11" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_28"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_18"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_18"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_38"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_18" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_27"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_17"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_37"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_17"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_17" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_29"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_19"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_39"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_19"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_19" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_23"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_13"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_33"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_13"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_13" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_24"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/circle_line_3"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_14"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_14"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_34"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_14" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_40"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_30"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_30"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_50"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_30" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_36"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_26"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_26"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_46"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_26"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_35"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_25"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_45"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_25"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_25" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_38"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_28"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_28"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_48"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_28" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_37"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_27"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_47"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_27"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_27" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_39"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_29"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_49"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_29"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_29" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_31"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_21"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_41"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_21"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_21" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_32"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_22"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_22"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_42"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_22" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_33"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_23"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_43"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_23"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_23" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_34"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_2"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_24"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_24"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_44"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_24" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_49"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_39"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_39"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_39" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_45"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_35"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_35"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_35" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_46"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_36"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_36"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_36" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_43"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_33"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_33"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_33" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_44"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_34"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_34"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_34" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_50"
+                android:layout_width="11dp"
+                android:layout_height="10dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_40"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_40"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_40" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_42"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_32"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_32"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_32" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_41"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_31"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_31"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_31" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_48"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_38"
+                app:layout_constraintLeft_toRightOf="@+id/cb_percent_38"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_38" />
+
+            <CheckBox
+                android:id="@+id/cb_percent_47"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:background="@drawable/circle_line_1"
+                android:button="@color/blank"
+                android:checked="false"
+                android:enabled="false"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_percent_37"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/cb_percent_37"
+                app:layout_constraintTop_toTopOf="@+id/cb_percent_37" />
+            </android.support.constraint.ConstraintLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/ssumtago_gray">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="썸공확률"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                />
+        </RelativeLayout>
+    </com.ramotion.foldingcell.FoldingCell>
+
+    <com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView
+        android:id="@+id/view_loby_waveView"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/view_loby_waveView"
+        app:layout_constraintRight_toRightOf="@+id/view_loby_waveView">
+
+        <ImageButton
+            android:id="@+id/btn_loby_prev"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/previous"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_20"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_10"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_10"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_30"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_10" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_16"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_6"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_6"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_26"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_6" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_15"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_5"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_25"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_5"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_5"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_18"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_8"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_8"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_28"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_8" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_17"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_7"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_27"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_7"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_7" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_19"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_9"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_29"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_9"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_9" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_11"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_1"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_21"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_1"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_1" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_12"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_2"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_2"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_22"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_2" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_13"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_3"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_23"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_3"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_3" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_14"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:background="@drawable/circle_line_4"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_4"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_4"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_24"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_4" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_30"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_20"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_20"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_40"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_20" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_26"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_16"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_16"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_36"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_16" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_25"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_15"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_35"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_15"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_15" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_22"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_12"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_12"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_32"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_12" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_21"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_11"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_31"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_11"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_11" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_28"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_18"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_18"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_38"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_18" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_27"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_17"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_37"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_17"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_17" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_29"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_19"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_39"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_19"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_19" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_23"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_13"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_33"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_13"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_13" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_24"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:background="@drawable/circle_line_3"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_14"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_14"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_34"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_14" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_40"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_30"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_30"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_50"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_30" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_36"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_26"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_26"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_46"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_26"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_35"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_25"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_45"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_25"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_25" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_38"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_28"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_28"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_48"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_28" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_37"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_27"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_47"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_27"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_27" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_39"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_29"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_49"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_29"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_29" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_31"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_21"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_41"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_21"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_21" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_32"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_22"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_22"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_42"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_22" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_33"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_23"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_43"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_23"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_23" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_34"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_2"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_24"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_24"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_44"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_24" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_49"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_39"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_39"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_39" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_45"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_35"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_35"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_35" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_46"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_36"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_36"
+        <ImageButton
+            android:id="@+id/btn_loby_next"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/next"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_36" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_43"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_33"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_33"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_33" />
+        <TextView
+            android:id="@+id/tv_loby_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000.00.00"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_loby_prev"
+            app:layout_constraintLeft_toRightOf="@+id/btn_loby_prev"
+            app:layout_constraintRight_toLeftOf="@+id/btn_loby_next"
+            app:layout_constraintTop_toTopOf="@+id/btn_loby_prev" />
 
-        <CheckBox
-            android:id="@+id/cb_percent_44"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_34"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_34"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_34" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_50"
-            android:layout_width="11dp"
-            android:layout_height="10dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_40"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_40"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_40" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_42"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_32"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_32"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_32" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_41"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_31"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_31"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_31" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_48"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_38"
-            app:layout_constraintLeft_toRightOf="@+id/cb_percent_38"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_38" />
-
-        <CheckBox
-            android:id="@+id/cb_percent_47"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:background="@drawable/circle_line_1"
-            android:button="@color/blank"
-            android:checked="false"
-            android:enabled="false"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_percent_37"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/cb_percent_37"
-            app:layout_constraintTop_toTopOf="@+id/cb_percent_37" />
-
-        <com.lovepago.ssumtago.CustomClass.CustomView.STGWaveView
-            android:id="@+id/view_loby_waveView"
+        <TextView
+            android:id="@+id/tv_loby_desc"
             android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:text="연필 모양을 눌러 럽파고의 서비스를 이용할 수 있습니다."
+            android:textColor="@color/black"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@+id/view_loby_waveView"
-            app:layout_constraintRight_toRightOf="@+id/view_loby_waveView">
-
-            <ImageButton
-                android:id="@+id/btn_loby_prev"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/previous"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/btn_loby_next"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/next"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_loby_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0000.00.00"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_loby_prev"
-                app:layout_constraintLeft_toRightOf="@+id/btn_loby_prev"
-                app:layout_constraintRight_toLeftOf="@+id/btn_loby_next"
-                app:layout_constraintTop_toTopOf="@+id/btn_loby_prev" />
-
-            <TextView
-                android:id="@+id/tv_loby_desc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="19dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:gravity="center"
-                android:lineSpacingExtra="8dp"
-                android:text="연필 모양을 눌러 럽파고의 서비스를 이용할 수 있습니다."
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
-
-        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
+
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -772,10 +811,10 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginRight="21dp"
-        android:src="@drawable/t3"
         android:background="@null"
         android:padding="6dp"
         android:scaleType="centerInside"
+        android:src="@drawable/t3"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -786,9 +825,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"
-        android:text="연필 모양을 눌러서\n리포트를 작성해보세요!"
         android:gravity="center"
         android:lineSpacingExtra="7dp"
+        android:text="연필 모양을 눌러서\n리포트를 작성해보세요!"
         android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -799,14 +838,14 @@
         android:id="@+id/tv_loby_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="\?__\?"
         android:textColor="#FFFC7055"
         android:textSize="70dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintHorizontal_bias="0.501"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_loby_addReport"
