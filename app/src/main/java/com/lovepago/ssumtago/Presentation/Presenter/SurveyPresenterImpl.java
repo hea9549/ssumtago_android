@@ -199,11 +199,7 @@ public class SurveyPresenterImpl implements SurveyPresenter {
                     .subscribe(response -> {
                         view.submitFinish();
                         User user = userService.getUser();
-                        response.setResult(new RealmList<>());
-                        ResultFormat defaultResult = new ResultFormat();
-                        defaultResult.setResults(new RealmList<>());
-                        defaultResult.getResults().add(new ValueFormat("defaultValue",-2));
-                        response.getResult().add(defaultResult);
+                        response.setResults(new RealmList<>());
                         Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         user.getPredictReports().add(response);

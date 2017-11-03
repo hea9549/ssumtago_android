@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     tools:context="com.lovepago.ssumtago.Presentation.Activity.TestViewActivity"
     >
     <RelativeLayout
@@ -15,45 +16,36 @@
         android:clipToPadding="false">
 
 
-        <com.ramotion.foldingcell.FoldingCell
-            xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/testFoldingCell"
+        <RelativeLayout
+            android:id="@+id/t_pe"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            folding-cell:backSideColor="@color/ssumtago_white_gray"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline20">
+            android:layout_marginTop="8dp">
 
             <RelativeLayout
-
+                android:id="@+id/expand_head"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible">
+                android:layout_height="100dp">
+                <TextView
+                    android:id="@+id/test_toggle"
+                    android:text="늘려볼까용"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/testFoldingCell"
+                android:layout_below="@id/expand_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:id="@+id/ssumPercentTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/black">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="32dp"
-                        android:text="썸공확률"
-                        android:textColor="@color/white" />
-                </RelativeLayout>
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:layout_below="@+id/ssumPercentTitle"
+                    android:layout_below="@+id/wrapper_loby_ssumPercentTitle"
                     android:background="#FAFAFA">
 
                     <CheckBox
@@ -716,27 +708,13 @@
                         app:layout_constraintTop_toTopOf="@+id/cb_percent_37" />
                 </android.support.constraint.ConstraintLayout>
 
-            </RelativeLayout>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/ssumtago_gray"
-                tools:visibility="invisible">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="32dp"
-                    android:text="썸공확률"
-                    android:textColor="@color/white" />
-            </RelativeLayout>
-        </com.ramotion.foldingcell.FoldingCell>
+        </RelativeLayout>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/testChart"
-            android:layout_below="@id/testFoldingCell"
+            android:layout_below="@id/t_pe"
             android:layout_width="300dp"
             android:layout_height="300dp" />
         <TextView

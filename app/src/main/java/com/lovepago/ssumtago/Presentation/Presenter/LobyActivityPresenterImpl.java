@@ -7,7 +7,7 @@ import com.lovepago.ssumtago.CustomClass.STGPreference;
 import com.lovepago.ssumtago.Data.Model.*;
 import com.lovepago.ssumtago.Service.SurveyService;
 import com.lovepago.ssumtago.Service.UserService;
-
+import com.lovepago.ssumtago.DataCode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -43,8 +43,25 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
             if (userReports.size() == 0) return;
             reportIndex = userReports.size() - 1;
             sortReports();
-            showReportResult();
+            setReport();
         }, error -> Log.e(TAG, "onPredictReportObservable error = " + error.toString()));
+    }
+
+    private void setReport() {
+        PredictReport recentReport = userReports.get(reportIndex);
+        if (recentReport.getResults().size() == 0){
+            view.setDate("설문이없쪄");
+            return;
+        }
+        SimpleDateFormat serverDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String strDate = recentReport.getRequestTime();
+        try {
+            Date responseDate = serverDateFormat.parse(strDate);
+            SimpleDateFormat viewDate = new SimpleDateFormat("yyyy.MM.dd");
+            view.setDate(viewDate.format(responseDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -61,7 +78,7 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
         if (userReports.size() != 0) {
             this.reportIndex = userReports.size() - 1;
             sortReports();
-            showReportResult();
+            setReport();
         }
 
     }
@@ -74,8 +91,8 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
                 .doOnError(error -> view.cancelDialog())
                 .subscribe(
                         surveys -> {
-                            String lastSurvey = preference.getValue(STGPreference.PREF_LAST_SURVEYED,"");
-                            if (lastSurvey.isEmpty() || userService.getUser().getRole().equals("admin")){
+                            String lastSurvey = preference.getValue(STGPreference.PREF_LAST_SURVEYED, "");
+                            if (lastSurvey.isEmpty() || userService.getUser().getRole().equals("admin")) {
                                 view.makeSelectSurveyDialog(surveys);
                                 return;
                             }
@@ -83,11 +100,11 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
                             try {
                                 Date lastSurveyTime = strDateFormat.parse(lastSurvey);
                                 Date currentTime = new Date();
-                                if (currentTime.getTime()-lastSurveyTime.getTime()<1000*60*60*24){
-                                    long time = 1000*60*60*24-(currentTime.getTime()-lastSurveyTime.getTime());
+                                if (currentTime.getTime() - lastSurveyTime.getTime() < 1000 * 60 * 60 * 24) {
+                                    long time = 1000 * 60 * 60 * 24 - (currentTime.getTime() - lastSurveyTime.getTime());
                                     view.makeAlertDialg("썸포트는 24시간에 한번만 작성하실 수 있습니다. \n남은시간 : "
-                                            +(time/(1000*60*60))+"시간"+((time/(1000*60))%60)+"분");
-                                }else{
+                                            + (time / (1000 * 60 * 60)) + "시간" + ((time / (1000 * 60)) % 60) + "분");
+                                } else {
                                     view.makeSelectSurveyDialog(surveys);
                                 }
                             } catch (ParseException e) {
@@ -98,33 +115,26 @@ public class LobyActivityPresenterImpl implements LobyActivityPresenter {
     }
 
     @Override
-    public void onPrevClick() {
-        if (reportIndex == 0) return;
-        reportIndex--;
-        showReportResult();
+    public void onPercentOpened(){
+        PredictReport recentReport = userReports.get(reportIndex);
+        if (recentReport.getResults().size() == 0) return;
+        for(ResultFormat resultFormat : recentReport.getResults()){
+            if (!resultFormat.getType().equals(DataCode.RESULT_TYPE_PERCENT))continue;
+            view.setPercent((int)resultFormat.getResults().get(0).getValue());
+        }
     }
 
     @Override
-    public void onNextClick() {
-        if (reportIndex == userReports.size() - 1 || userReports.size()==0) return;
-        reportIndex++;
-        showReportResult();
+    public void onPredictLoveOpened(){
+        PredictReport recentReport = userReports.get(reportIndex);
+        if (recentReport.getResults().size() == 0) return;
+        for(ResultFormat resultFormat : recentReport.getResults()){
+            if (!resultFormat.getType().equals(DataCode.RESULT_TYPE_PREDICT_LOVE))continue;
+            view.setPredictLove(resultFormat.getResults());
+        }
+
     }
 
-    private void showReportResult() {
-        PredictReport recentReport = userReports.get(reportIndex);
-        if (recentReport.getResult().size()==0)return;
-        view.setPercent((int)(recentReport.getResult().get(0).getResults().get(0).getValue() * 100));
-        SimpleDateFormat serverDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        String strDate = recentReport.getRequestTime();
-        try {
-            Date responseDate = serverDateFormat.parse(strDate);
-            SimpleDateFormat viewDate = new SimpleDateFormat("yyyy.MM.dd");
-            view.setDate(viewDate.format(responseDate));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void sortReports() {
         Collections.sort(userReports, (e1, e2) -> {

@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class ResultFormat extends RealmObject {
 
-    int type;
+    String type;
     RealmList<ValueFormat> results;
 
 

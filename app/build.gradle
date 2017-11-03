@@ -35,6 +35,7 @@ dependencies {
     compile('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.5.1') {
         exclude group: 'com.android.support'
     }
+    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     compile 'com.facebook.android:facebook-android-sdk:4.+'
     compile 'com.android.support:recyclerview-v7:25.0.1'

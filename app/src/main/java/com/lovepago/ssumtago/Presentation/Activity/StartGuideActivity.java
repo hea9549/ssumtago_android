@@ -16,17 +16,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lovepago.ssumtago.CustomClass.STGBaseActivity;
+import com.lovepago.ssumtago.Data.Model.User;
 import com.lovepago.ssumtago.R;
+import com.lovepago.ssumtago.STGApplication;
+import com.lovepago.ssumtago.Service.UserService;
 import com.skyfishjy.library.RippleBackground;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class StartGuideActivity extends STGBaseActivity{
+public class StartGuideActivity extends STGBaseActivity {
 
     @BindView(R.id.wrapper_startGuide_rippleBack)
     RippleBackground wrapper_rippleBack;
@@ -40,25 +45,29 @@ public class StartGuideActivity extends STGBaseActivity{
     ConstraintLayout wrapper_guide4;
     @BindView(R.id.btn_startGuide_tap)
     Button btn_tap;
-    @BindViews({R.id.img_startGuide_indicator1,R.id.img_startGuide_indicator2,R.id.img_startGuide_indicator3})
+    @BindViews({R.id.img_startGuide_indicator1, R.id.img_startGuide_indicator2, R.id.img_startGuide_indicator3})
     List<ImageView> imgs_indicator;
+    @Inject
+    UserService userService;
 
     private int indicatorIndex = 0;
+
     @Override
     public void STGOnCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_start_guide);
         ButterKnife.bind(this);
+        STGApplication.getComponent().inject(this);
         wrapper_rippleBack.startRippleAnimation();
-        btn_tap.setOnClickListener(v->{
-            Animation fadeOut= new AlphaAnimation(1,0);
+        btn_tap.setOnClickListener(v -> {
+            Animation fadeOut = new AlphaAnimation(1, 0);
             fadeOut.setInterpolator(new AccelerateInterpolator());
             fadeOut.setDuration(500);
             fadeOut.setFillAfter(true);
-            Animation fadeIn = new AlphaAnimation(0,1);
+            Animation fadeIn = new AlphaAnimation(0, 1);
             fadeIn.setInterpolator(new DecelerateInterpolator());
             fadeIn.setDuration(500);
             fadeIn.setFillAfter(true);
-            switch (indicatorIndex){
+            switch (indicatorIndex) {
                 case 0:
                     imgs_indicator.get(0).setImageResource(R.drawable.guide_empty_box);
                     imgs_indicator.get(1).setImageResource(R.drawable.guide_full_box);
@@ -118,7 +127,10 @@ public class StartGuideActivity extends STGBaseActivity{
                             wrapper_guide4.startAnimation(fadeIn);
                             btn_tap.setVisibility(View.INVISIBLE);
                             wrapper_rippleBack.setVisibility(View.INVISIBLE);*/
-                            navigateActivity(SurveyActivity.class,"surveyId",2);
+                            User user = userService.getUser();
+                            user.setSurveyedYN(true);
+                            userService.updateUser(user);
+                            navigateActivity(LobyActivity.class);
                         }
 
                         @Override
@@ -133,7 +145,7 @@ public class StartGuideActivity extends STGBaseActivity{
     }
 
     @OnClick(R.id.btn_startGuide_startSurvey)
-    void onStartSurveyClick(){
-        navigateActivity(SurveyActivity.class,"surveyId",2);
+    void onStartSurveyClick() {
+        navigateActivity(SurveyActivity.class, "surveyId", 2);
     }
 }

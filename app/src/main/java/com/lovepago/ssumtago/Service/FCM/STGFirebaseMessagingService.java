@@ -81,7 +81,7 @@ public class STGFirebaseMessagingService extends FirebaseMessagingService {
                         if (predictReport.getId().equals(reportResultBody.getReportId())) {
                             Realm realm = Realm.getDefaultInstance();
                             realm.beginTransaction();
-                            predictReport.setResult(reportResultBody.getResults());
+                            predictReport.setResults(reportResultBody.getResults());
                             userService.alertPredictReportChange();
                             realm.commitTransaction();
                         }

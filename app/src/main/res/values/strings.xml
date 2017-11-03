@@ -32,4 +32,6 @@
     <string name="survey_finish_main_ssum">썸포트를 모두 완성했어요!\n제출하시겠어요?</string>
     <string name="survey_finish_tip_first">&lt;tip&gt;제출 후 럽파고의 서비스\n를 이용할 수 있어요</string>
     <string name="survey_finish_tip_ssum">&lt;tip&gt;썸포트는 24시간에 1회만\n작성할 수 있어요.</string>
+    <string name="explain_chart">그래프의 가로축은 만남 횟수, 세로축은 고백 성공 가능성이 높은지, 낮은지에 대해 나타냅니다.</string>
+    <string name="loby_defaultPercentDesc">이 확률값은 현재 시점에서 당신의 썸이 성공할 확률을 나타냅니다.</string>
 </resources>
