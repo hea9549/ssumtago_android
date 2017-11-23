@@ -19,6 +19,7 @@ import com.lovepago.ssumtago.CustomClass.CustomView.STGResultDialog;
 import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Data.Model.PushMessageBody;
 import com.lovepago.ssumtago.Data.Model.ReportResultBody;
+import com.lovepago.ssumtago.Data.Model.ResultFormat;
 import com.lovepago.ssumtago.Presentation.Activity.LoginActivity;
 import com.lovepago.ssumtago.Presentation.Activity.MainActivity;
 import com.lovepago.ssumtago.Presentation.Activity.ResultDialogActivity;
@@ -81,7 +82,9 @@ public class STGFirebaseMessagingService extends FirebaseMessagingService {
                         if (predictReport.getId().equals(reportResultBody.getReportId())) {
                             Realm realm = Realm.getDefaultInstance();
                             realm.beginTransaction();
-                            predictReport.setResult(reportResultBody.getResults());
+                            predictReport = realm.copyFromRealm(predictReport);
+                            predictReport.setResults(reportResultBody.getResults());
+                            realm.copyToRealmOrUpdate(predictReport);
                             userService.alertPredictReportChange();
                             realm.commitTransaction();
                         }

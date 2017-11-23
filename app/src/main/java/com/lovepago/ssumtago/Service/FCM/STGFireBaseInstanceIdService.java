@@ -9,8 +9,6 @@ import com.lovepago.ssumtago.Service.UserService;
 
 import javax.inject.Inject;
 
-import retrofit2.Retrofit;
-
 /**
  * Created by ParkHaeSung on 2017-05-28.
  */

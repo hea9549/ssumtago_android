@@ -16,7 +16,8 @@
 
     <color name="ssumInputBox">#FFE5E5E5</color>
     <color name="splitLine">#e5e5e5</color>
-
+    <color name="textGray">#e5e5e5</color>
+    <color name="textGray_darker">#9b9b9b</color>
     <color name="selector_answer_notSelect">#33ffffff</color>
     <color name="answer_box_inactive">#05ffffff</color>
     <color name="selector_answer_select">#33ffffff</color>

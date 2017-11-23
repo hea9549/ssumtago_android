@@ -8,9 +8,11 @@ import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Data.Model.Question;
 import com.lovepago.ssumtago.Data.Model.RealmDouble;
 import com.lovepago.ssumtago.Data.Model.RealmString;
+import com.lovepago.ssumtago.Data.Model.ResultFormat;
 import com.lovepago.ssumtago.Data.Model.SsumJi;
 import com.lovepago.ssumtago.Data.Model.Survey;
 import com.lovepago.ssumtago.Data.Model.User;
+import com.lovepago.ssumtago.Data.Model.ValueFormat;
 import com.lovepago.ssumtago.R;
 import com.lovepago.ssumtago.Service.SurveyService;
 import com.lovepago.ssumtago.Service.UserService;
@@ -197,7 +199,7 @@ public class SurveyPresenterImpl implements SurveyPresenter {
                     .subscribe(response -> {
                         view.submitFinish();
                         User user = userService.getUser();
-                        response.setResult(null);
+                        response.setResults(new RealmList<>());
                         Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         user.getPredictReports().add(response);

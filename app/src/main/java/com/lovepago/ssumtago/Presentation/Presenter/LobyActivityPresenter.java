@@ -1,7 +1,9 @@
 package com.lovepago.ssumtago.Presentation.Presenter;
 
 
+import com.lovepago.ssumtago.Data.Model.PredictReport;
 import com.lovepago.ssumtago.Data.Model.Survey;
+import com.lovepago.ssumtago.Data.Model.ValueFormat;
 
 import java.util.List;
 
@@ -14,16 +16,20 @@ public interface LobyActivityPresenter {
 
     void onAddReportClick();
 
-    void onPrevClick();
+    void onPercentOpened();
 
-    void onNextClick();
+    void onPredictLoveOpened();
+
+    void onPredictClick(PredictReport report);
 
     interface View extends BaseViewPresenter{
         void setPercent(int percent);
 
+        void setPredictLove(List<ValueFormat> results);
+
         void makeSelectSurveyDialog(List<Survey> surveys);
 
-        void setDate(String date);
+        void setSpinner(List<PredictReport> reports);
 
         void makeAlertDialg(String message);
     }

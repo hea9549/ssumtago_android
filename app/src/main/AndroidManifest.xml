@@ -46,7 +46,9 @@
 
         <activity android:name=".Presentation.Activity.MainActivity" />
         <activity android:name=".Presentation.Activity.JoinActivity" />
-        <activity android:name=".Presentation.Activity.TestViewActivity" />
+        <activity android:name=".Presentation.Activity.TestViewActivity" >
+
+        </activity>
         <activity android:name=".Presentation.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,4 +8,6 @@ public class DataCode {
     public static String LOGIN_TYPE_NORMAL = "030001";
     public static String LOGIN_TYPE_FACEBOOK = "030002";
     public static String LOGIN_TYPE_KAKAOTALK = "030003";
+    public static final String RESULT_TYPE_PERCENT = "1";
+    public static final String RESULT_TYPE_PREDICT_LOVE = "2";
 }

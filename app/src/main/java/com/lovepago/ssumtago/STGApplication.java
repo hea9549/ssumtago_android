@@ -14,6 +14,7 @@ import com.lovepago.ssumtago.Presentation.Activity.LoginActivity;
 import com.lovepago.ssumtago.Presentation.Activity.MainActivity;
 import com.lovepago.ssumtago.Presentation.Activity.MyAccountActivity;
 import com.lovepago.ssumtago.Presentation.Activity.SplashActivity;
+import com.lovepago.ssumtago.Presentation.Activity.StartGuideActivity;
 import com.lovepago.ssumtago.Presentation.Activity.SurveyActivity;
 import com.lovepago.ssumtago.Service.FCM.STGFireBaseInstanceIdService;
 import com.lovepago.ssumtago.Service.FCM.STGFirebaseMessagingService;
@@ -85,5 +86,7 @@ public class STGApplication extends Application {
         void inject(MyAccountActivity myAccountActivity);
 
         void inject(SplashActivity splashActivity);
+
+        void inject(StartGuideActivity startGuideActivity);
     }
 }
